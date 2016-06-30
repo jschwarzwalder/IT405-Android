@@ -11,13 +11,17 @@ public class Employee {
     private Character sex;
     private Date birthday;
     private Date joining_date;
+    private String employment_type;
 
     public Employee(int empID, String name, Character sex, Date birthday, Date joining_date) {
+    public Employee(int empID, String name, Character sex, Date birthday, Date joining_date, String employment_type) {
         this.empID = empID;
         this.name = name;
         this.sex = sex;
         this.birthday = birthday;
         this.joining_date = joining_date;
+        this.employment_type = employment_type;
+
     }
 
     public int getEmpID() {
