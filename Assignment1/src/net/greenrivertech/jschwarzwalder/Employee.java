@@ -12,15 +12,17 @@ public class Employee {
     private Date birthday;
     private Date joining_date;
     private String employment_type;
+    private String employment_location;
 
 
-    public Employee(int empID, String name, Character sex, Date birthday, Date joining_date, String employment_type) {
+    public Employee(int empID, String name, Character sex, Date birthday, Date joining_date, String employment_type, String employment_location) {
         this.empID = empID;
         this.name = name;
         this.sex = sex;
         this.birthday = birthday;
         this.joining_date = joining_date;
         this.employment_type = employment_type;
+        this.employment_location = employment_location;
 
     }
 
