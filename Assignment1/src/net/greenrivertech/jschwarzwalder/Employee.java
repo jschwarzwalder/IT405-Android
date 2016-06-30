@@ -13,6 +13,8 @@ public class Employee {
     private Date joining_date;
     private String employment_type;
     private String employment_location;
+    private Boolean can_sign_checks;
+    private Boolean can_approve_expense;
 
 
     public Employee(int empID, String name, Character sex, Date birthday, Date joining_date, String employment_type, String employment_location) {
@@ -23,6 +25,8 @@ public class Employee {
         this.joining_date = joining_date;
         this.employment_type = employment_type;
         this.employment_location = employment_location;
+        can_sign_checks = false;
+        can_approve_expense = false;
 
     }
 
