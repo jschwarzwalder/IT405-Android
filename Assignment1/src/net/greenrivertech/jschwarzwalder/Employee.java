@@ -5,19 +5,21 @@ import java.util.Date;
 /**
  * Created by Jami on 6/30/2016.
  */
-public class Employee {
+public abstract class Employee {
     private int empID;
     private String name;
     private Character sex;
     private Date birthday;
     private Date joining_date;
     private String employment_type;
-    private String employment_location;
+    private Company employment_location;
     private Boolean can_sign_checks;
     private Boolean can_approve_expense;
 
 
-    public Employee(int empID, String name, Character sex, Date birthday, Date joining_date, String employment_type, String employment_location) {
+    public Employee(int empID, String name, Character sex, Date birthday, Date joining_date,
+                    String employment_type, Company employment_location, Boolean can_sign_checks, Boolean can_approve_expense) {
+
         this.empID = empID;
         this.name = name;
         this.sex = sex;
@@ -25,8 +27,8 @@ public class Employee {
         this.joining_date = joining_date;
         this.employment_type = employment_type;
         this.employment_location = employment_location;
-        can_sign_checks = false;
-        can_approve_expense = false;
+        this.can_sign_checks = can_sign_checks;
+        this.can_approve_expense = can_approve_expense;
 
     }
 
