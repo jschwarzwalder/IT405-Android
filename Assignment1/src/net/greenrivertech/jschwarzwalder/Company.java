@@ -43,11 +43,11 @@ public class Company {
         this.company_identifer = company_identifer;
     }
 
-    public HashSet<Employee> getEmployees() {
-        return Employees;
+    public String listEmployees() {
+        return Employees.toString();
     }
 
-    public void addEmployees(Employee employee) {
+    public void addEmployee(Employee employee) {
         Employees.add(employee);
     }
 
