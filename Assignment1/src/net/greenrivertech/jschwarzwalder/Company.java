@@ -1,7 +1,7 @@
 package net.greenrivertech.jschwarzwalder;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * Created by Jami on 6/30/2016.
@@ -9,14 +9,13 @@ import java.util.HashSet;
 public class Company {
     private String name;
     private String address;
-    private int company_identifer;
-    private HashSet<Employee> Employees;
+    private int companyIdentifier;
+    private LinkedList<Employee> employees = new LinkedList<Employee>();
 
-    public Company (){
-        String name;
-        String address;
-        int company_identifer;
-        HashSet<Employee> Employees;
+    public Company(String name, String address, int companyIdentifier) {
+        this.name = name;
+        this.address = address;
+        this.companyIdentifier = companyIdentifier;
     }
 
     public String getName() {
@@ -35,20 +34,57 @@ public class Company {
         this.address = address;
     }
 
-    public int getCompany_identifer() {
-        return company_identifer;
+    public int getCompanyIdentifier() {
+        return companyIdentifier;
     }
 
-    public void setCompany_identifer(int company_identifer) {
-        this.company_identifer = company_identifer;
+    public void setCompanyIdentifer(int companyIdentifier) {
+        this.companyIdentifier = companyIdentifier;
     }
 
-    public String listEmployees() {
-        return Employees.toString();
+    public void listEmployees() {
+        Iterator<Employee> employeeList = employees.listIterator();
+        while (employeeList.hasNext()) {
+            Employee employee = employeeList.next();
+            System.out.print(employee.getName());
+
+            System.out.print(" - ");
+            System.out.print(employee.getEmployment_type());
+
+            System.out.print(" (");
+            System.out.print(employee.getEmpID());
+
+            System.out.print(" , ");
+            System.out.print(employee.getSex());
+
+            System.out.print(", Joined: ");
+            System.out.print(employee.getJoiningDate());
+
+            System.out.print(", Birthdate: ");
+            System.out.print(employee.getBirthday());
+
+            if (employee.getCan_approve_expense()){
+                System.out.print(", Can approve expenses");
+            } else {
+                System.out.print(", CANNOT approve expenses");
+            }
+
+            if (employee.getCan_sign_checks()){
+                System.out.print(", Can sign checks");
+            } else {
+                System.out.print(", CANNOT sign checks");
+            }
+
+            System.out.println(")");
+        }
+
     }
+
+
 
     public void addEmployee(Employee employee) {
-        Employees.add(employee);
+       // System.out.println(employee);
+        employees.add(employee);
     }
 
 
