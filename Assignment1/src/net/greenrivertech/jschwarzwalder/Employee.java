@@ -1,5 +1,7 @@
 package net.greenrivertech.jschwarzwalder;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -8,23 +10,25 @@ import java.util.Date;
 public abstract class Employee {
     private int empID;
     private String name;
-    private Character sex;
+    private char sex;
     private Date birthday;
-    private Date joining_date;
+    private Date joiningDate;
     private String employment_type;
     private Company employment_location;
     private Boolean can_sign_checks;
     private Boolean can_approve_expense;
+    private static int nextID = 10001;
 
 
-    public Employee(int empID, String name, Character sex, Date birthday, Date joining_date,
+    public Employee( String name, char sex, Date birthday, Date joiningDate,
                     String employment_type, Company employment_location, Boolean can_sign_checks, Boolean can_approve_expense) {
 
-        this.empID = empID;
+        this.empID = nextID;
+        nextID += 5;
         this.name = name;
         this.sex = sex;
         this.birthday = birthday;
-        this.joining_date = joining_date;
+        this.joiningDate = joiningDate;
         this.employment_type = employment_type;
         this.employment_location = employment_location;
         this.can_sign_checks = can_sign_checks;
@@ -48,27 +52,49 @@ public abstract class Employee {
         this.name = name;
     }
 
-    public Character getSex() {
+    public char getSex() {
         return sex;
     }
 
-    public void setSex(Character sex) {
+    public void setSex(char sex) {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public String getBirthday() {
+        Format formatter = new SimpleDateFormat("MM-dd-yyyy ");
+        return formatter.format(birthday);
     }
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
-    public Date getJoining_date() {
-        return joining_date;
+    public String getJoiningDate() {
+        Format formatter = new SimpleDateFormat("MM-dd-yyyy ");
+        return formatter.format(joiningDate);
     }
 
-    public void setJoining_date(Date joining_date) {
-        this.joining_date = joining_date;
+    public void setJoiningDate(Date joiningDate) {
+        this.joiningDate = joiningDate;
+    }
+
+    public String getEmployment_type() {
+        return employment_type;
+    }
+
+    public void setEmployment_type(String employment_type) {
+        this.employment_type = employment_type;
+    }
+
+    public Boolean getCan_sign_checks() {
+        return can_sign_checks;
+    }
+
+    public Boolean getCan_approve_expense() {
+        return can_approve_expense;
+    }
+
+    public Company getEmployment_location() {
+        return employment_location;
     }
 }
