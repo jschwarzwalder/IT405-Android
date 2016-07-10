@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="starryNight">#151D54</color>
+    <color name="tangerine">#E68920</color>
+    <color name="murkyWater">#6FA4AD</color>
+    <color name="bubblegum">#ED467E</color>
+    <color name="pipi">#FFB2C1</color>
+    <color name="ice">#E5FCF4</color>
+    <color name="black">#0C0902</color>
+    <color name="white">#fff</color>
+    <color name="seattleSky">#CODDDC</color>
+    <color name="emerald">#06685C</color>
+    <color name="cornflower">#c8ecff</color>
+    <color name="powder">#def4ff</color>
+    <color name="winter">#eff9ff</color>
+    <color name="lilac">#f0bff0</color>
+    <color name="plum">#7b47ab</color>
+
+
+</resources>
