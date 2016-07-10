@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Quote for the Day</string>
+    <string name="quote1">In order to succeed, we must first believe that we can. \n-Nikos Kazantzakis</string>
+    <string name="quote2">Everything has beauty, but not everyone sees it. \n-Confucius</string>
+    <string name="quote3">No excellent soul is exempt from a mixture of madness. \n-Aristotle</string>
+    <string name="quote4">Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. \n-Buddha</string>
+    <string name="quote5">An eye for an eye only ends up making the whole world blind. \n-Mahatma Gandhi</string>
+    <string name="quote6">The true sign of intelligence is not knowledge but imagination.\n -Albert Einstein</string>
+    <string name="quote7">Education is not the filling of a pail, but the lighting of a fire. \n-William Butler Yeats</string>
+    <string name="quote8">Education is the movement from darkness to light. \n-Allan Bloom</string>
+    <string name="quote9">Every artist has thousands of bad drawings in them and the only way to get rid of them is to draw them out.\n -Chuck Jones</string>
+    <string name="quote10">We know only too well that what we are doing is nothing more than a drop in the ocean. But if the drop were not there, the ocean would be missing something. \n-Mother Teresa</string>
+</resources>
