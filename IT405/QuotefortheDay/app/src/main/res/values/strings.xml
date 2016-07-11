@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Quote for the Day</string>
     <string name="welcome">Welcome \nPress Button to get a quote!</string>
+    <string name="button">New Quote</string>
     <string name="quote1">In order to succeed, we must first believe that we can. \n-Nikos Kazantzakis</string>
     <string name="quote2">Everything has beauty, but not everyone sees it. \n-Confucius</string>
     <string name="quote3">No excellent soul is exempt from a mixture of madness. \n-Aristotle</string>

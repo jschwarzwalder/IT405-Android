@@ -7,28 +7,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="net.greenrivertech.jschwarzwalder.quotefortheday.Quotes"
-    android:background="@color/black">
+    tools:context="net.greenrivertech.jschwarzwalder.quotefortheday.QuotesActivity"
+    android:background="@drawable/background">
 
     <TextView
-        android:id="@+id/quote1"
+        android:id="@+id/quote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quote1"
-        android:textColor="@color/bubblegum"
+        android:text="@string/welcome"
+        android:textColor="@color/emerald"
         android:fontFamily="cursive"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:background="@color/black"
         android:textAlignment="center"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="60dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Quote"
+        android:text="@string/button"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
