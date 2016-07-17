@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+    <!-- Vertical Orientation -->
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Button 1"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#151D54"/>
+
+    <Button
+        android:layout_width="1
+        android:background="@drawable/buttonshape"
+    android:shadowColor="#151D54"00dp"
+        android:layout_height="wrap_content"
+        android:text="Button 2" />
+
+    android:background="@drawable/buttonshape"
+    android:shadowColor="#151D54"
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button 3"/>
+
+
+
+</LinearLayout>
