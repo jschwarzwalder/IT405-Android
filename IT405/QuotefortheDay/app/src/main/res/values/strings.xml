@@ -1,8 +1,3 @@
-<!--
- Jami Schwarzwalder
-7/10/16
- Quote of the Day app
--->
 <resources>
     <string name="app_name">Quote for the Day</string>
     <string name="welcome">Welcome \nPress Button to get a quote!</string>

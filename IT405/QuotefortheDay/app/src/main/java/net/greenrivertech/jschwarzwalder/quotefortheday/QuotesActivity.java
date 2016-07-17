@@ -1,10 +1,3 @@
-/*
-* Jami Schwarzwalder
-* 7/10/16
-* Quote of the Day app
-*
-*/
-
 package net.greenrivertech.jschwarzwalder.quotefortheday;
 
 import android.os.Bundle;
@@ -23,11 +16,8 @@ public class QuotesActivity extends AppCompatActivity {
     private int[] randomQuote = new int[10];
     private TextView quote = null;
     private int[] randomColor = new int[13];
-
-    //for debugging log
+    private int color = 0;
     private final static String TAG = QuotesActivity.class.getSimpleName();
-
-    //used to find next item in a random order
     private Random numGen = new Random();
 
     @Override
@@ -43,7 +33,7 @@ public class QuotesActivity extends AppCompatActivity {
         }
 
         Log.d(TAG, getString(R.string.welcome));
-        //adding all the colors to the array
+
         randomColor[0]  = R.color.tangerine ;
         randomColor[1]  = R.color.murkyWater ;
         randomColor[2]  = R.color.bubblegum ;
@@ -62,7 +52,6 @@ public class QuotesActivity extends AppCompatActivity {
         Log.d(TAG, "color array has been built");
         Log.d(TAG, randomColor.toString());
 
-        //adding all the quote strings to an array
         for (int i = 1; i <= 10; i++) {
             String quoteString = "quote" + i;
             randomQuote[i-1] = getResources().getIdentifier(quoteString, "string", getPackageName());
@@ -81,11 +70,8 @@ public class QuotesActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Changing Quote for the Day", Toast.LENGTH_SHORT).show();
 
                 if (quote != null) {
-                    //Select Random quote from list and display
                     quote.setText(randomQuote[quoteIndex]);
                     //Log.d(TAG, quote.getString());
-
-                    //Select Random Color from list and change text to that color
                     quote.setTextColor(getResources().getColor(randomColor[colorIndex]));
                     if (quoteIndex == 9){
                         quote.setTextSize(30);
