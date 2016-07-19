@@ -11,7 +11,6 @@
         android:text="Manage Portofolio"
         android:textSize="30dp"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/AMX"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/textView" />
@@ -56,16 +55,59 @@
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
-        android:padding="25dp" 
+        android:padding="25dp"
         />
 
-    <EditText
-        android:id="@+id/AMX"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/amznQuantity"
+        android:text="200 of AMZN"
+        android:gravity="center"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_toLeftOf="@id/amznPrice"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amznName"
+        android:text="Amazon Corporation"
+        android:gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_weight="4"
-        android:inputType="textLongMessage" />
+        android:layout_alignBottom="@id/amznDelete"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amznPrice"
+        android:text="464.32"
+        android:gravity="center"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_toLeftOf="@id/amznChange"
+        android:layout_marginLeft="25dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amznChange"
+        android:text="(+3.29)"
+        android:gravity="center"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_toLeftOf="@id/amznDelete"
+        android:layout_marginLeft="25dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amznValue"
+        android:text="Value: 9286.40"
+        android:gravity="center"
+        android:layout_toRightOf="@id/amznName"
+        android:layout_alignBottom="@id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:paddingRight="10dp"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -74,20 +116,62 @@
         android:background="@color/teal"
         android:text="Del"
         android:textColor="@color/white"
-        android:id="@+id/button"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
+        android:id="@+id/msftDelete"
+        android:layout_below="@+id/amznDelete"
+        android:layout_alignRight="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="85dp" />
 
-
-    <EditText
-        android:id="@+id/MSFT"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/msftQuantity"
+        android:text="100 of MSFT"
+        android:gravity="center"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_toLeftOf="@id/msftPrice"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/msftName"
+        android:text="Microsoft Corporation"
+        android:gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_weight="4"
-        android:inputType="textLongMessage" />
+        android:layout_alignBottom="@id/msftDelete"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/msftPrice"
+        android:text="62.67"
+        android:gravity="center"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_toLeftOf="@id/msftChange"
+        android:layout_marginLeft="25dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/msftChange"
+        android:text="(-0.29)"
+        android:gravity="center"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_toLeftOf="@id/msftDelete"
+        android:layout_marginLeft="25dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/msftValue"
+        android:text="Value: 6267.00"
+        android:gravity="center"
+        android:layout_toRightOf="@id/msftName"
+        android:layout_alignBottom="@id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:paddingRight="10dp"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -97,9 +181,10 @@
         android:text="Del"
         android:textColor="@color/white"
         android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/button2" />
+        android:id="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_alignRight="@id/addButton"
+        />
 
 
 </RelativeLayout>
