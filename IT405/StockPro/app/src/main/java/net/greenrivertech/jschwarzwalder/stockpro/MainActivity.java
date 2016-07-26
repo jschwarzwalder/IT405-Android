@@ -1,6 +1,7 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_portfolio);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
     }
 
@@ -79,5 +80,19 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.msftName).setVisibility(View.GONE);
         findViewById(R.id.msftValue).setVisibility(View.GONE);
         findViewById(R.id.msftDelete).setVisibility(View.GONE);
+    }
+
+    public void showMsft(View view){
+        Intent i = new Intent(this, StockDetail.class);
+        Bundle b = new Bundle();
+        b.putString("name", "Microsoft");
+        b.putString("symbol", "MSFT");
+        b.putInt("price", 6767);
+        b.putInt("change", -29);
+        b.putInt("high", 7256);
+        b.putInt("low", 5432);
+        b.putInt("volume", 24565612);
+        i.putExtras(b);
+        startActivity(i);
     }
 }

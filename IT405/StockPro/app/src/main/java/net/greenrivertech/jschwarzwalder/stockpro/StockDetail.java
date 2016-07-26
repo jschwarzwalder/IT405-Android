@@ -38,10 +38,11 @@ public class StockDetail extends AppCompatActivity {
         newPrice.setText(String.format("Current Price: %d.%02d", price / 100, price % 100));
 
         TextView newChange = (TextView)findViewById(R.id.change);
-        newChange.setText(String.format("Change: %+d.%02d", change / 100, change % 100));
         if (change >= 0){
+            newChange.setText(String.format("Change: +%d.%02d", change / 100, change % 100));
             newChange.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
         } else {
+            newChange.setText(String.format("Change: -%d.%02d", change / 100, Math.abs(change % 100)));
             newChange.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.orange));
         }
 
