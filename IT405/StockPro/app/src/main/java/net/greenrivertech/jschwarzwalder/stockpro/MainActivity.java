@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void showNetf(View view){
+    public void shownetf(View view){
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
         b.putString("name", "Netflix");
@@ -149,6 +149,11 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("low", 8589);
         b.putInt("volume", 54682317);
         i.putExtras(b);
+        startActivity(i);
+    }
+
+    public void openSettings(View view){
+        Intent i = new Intent (this, Settings.class);
         startActivity(i);
     }
 }
