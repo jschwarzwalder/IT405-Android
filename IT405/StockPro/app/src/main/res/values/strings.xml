@@ -49,12 +49,14 @@
     <string name="add">Add</string>
     <string name="qty">QTY</string>
     <string name="searchsymbol">Symbol</string>
-    <string name="portofolioTitle">Manage Portofolio</string>
+    <string name="portofolioTitle">My Portfolio</string>
     <string name="save">Save</string>
     <string name="backgroundSyncSettings">Background Sync</string>
     <string name="settingsTitle">Settings</string>
     <string name="backgroundSyncSettingsDesc">Refresh portfolio every Hour</string>
     <string name="search">Search</string>
     <string name="appTitle">Stock Pro</string>
+    <string name="list">List</string>
+    <string name="more">More</string>
 
 </resources>
