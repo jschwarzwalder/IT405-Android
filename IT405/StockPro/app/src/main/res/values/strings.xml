@@ -58,5 +58,6 @@
     <string name="appTitle">Stock Pro</string>
     <string name="list">List</string>
     <string name="more">More</string>
+    <string name="total_value">Total Value: XXXXXX.XX</string>
 
 </resources>
