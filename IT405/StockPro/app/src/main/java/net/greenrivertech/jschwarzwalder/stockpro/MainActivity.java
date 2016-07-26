@@ -95,4 +95,60 @@ public class MainActivity extends AppCompatActivity {
         i.putExtras(b);
         startActivity(i);
     }
+
+    public void showAmzn(View view){
+        Intent i = new Intent(this, StockDetail.class);
+        Bundle b = new Bundle();
+        b.putString("name", "Amazon Corporation");
+        b.putString("symbol", "AMZN");
+        b.putInt("price", 46432);
+        b.putInt("change", 329);
+        b.putInt("high", 67232);
+        b.putInt("low", 37223);
+        b.putInt("volume", 3200057);
+        i.putExtras(b);
+        startActivity(i);
+    }
+
+    public void showNint(View view){
+        Intent i = new Intent(this, StockDetail.class);
+        Bundle b = new Bundle();
+        b.putString("name", "Nintendo");
+        b.putString("symbol", "JPY");
+        b.putInt("price", 2322000);
+        b.putInt("change", 5000);
+        b.putInt("high", 2822000);
+        b.putInt("low", 1058634);
+        b.putInt("volume", 1234589);
+        i.putExtras(b);
+        startActivity(i);
+    }
+
+    public void showLeaf(View view){
+        Intent i = new Intent(this, StockDetail.class);
+        Bundle b = new Bundle();
+        b.putString("name", "Springleaf");
+        b.putString("symbol", "LEAF");
+        b.putInt("price", 4868);
+        b.putInt("change", -46);
+        b.putInt("high", 6725);
+        b.putInt("low", 3358);
+        b.putInt("volume", 4556879);
+        i.putExtras(b);
+        startActivity(i);
+    }
+
+    public void showNetf(View view){
+        Intent i = new Intent(this, StockDetail.class);
+        Bundle b = new Bundle();
+        b.putString("name", "Netflix");
+        b.putString("symbol", "NFLX");
+        b.putInt("price", 8589);
+        b.putInt("change", -10);
+        b.putInt("high", 14635);
+        b.putInt("low", 8589);
+        b.putInt("volume", 54682317);
+        i.putExtras(b);
+        startActivity(i);
+    }
 }
