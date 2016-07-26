@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/teal"
-            android:text="Search"
+            android:text="@string/search"
             android:textColor="@color/white" />
     </LinearLayout>
 
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/teal"
-        android:text="@string/add_to_portfolio"
+        android:text="@string/addToPortfolio"
         android:textColor="@color/white"
         android:layout_weight="1"/>
 

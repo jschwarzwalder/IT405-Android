@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.greenrivertech.jschwarzwalder.stocklayouts">
+    package="net.greenrivertech.jschwarzwalder.stockui">
 
     <application
         android:allowBackup="true"
