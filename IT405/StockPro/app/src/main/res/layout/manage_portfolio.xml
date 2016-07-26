@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_span="2"
+        android:gravity="center_horizontal"
+        android:text="@string/portofolioTitle"
+        android:textSize="30dp" />
+
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addButton"
+        android:layout_toLeftOf="@+id/qty"
+        android:layout_marginRight="20dp"
+        android:hint="@string/searchsymbol"
+        android:inputType="textShortMessage"
+        android:padding="15dp"
+        />
+
+    <EditText
+        android:id="@+id/qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:hint="@string/qty"
+        android:inputType="textShortMessage"
+        android:padding="15dp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/msftValue"
+        android:layout_toRightOf="@+id/msftValue"
+        android:layout_weight="1"
+        android:background="@color/teal"
+        android:padding="13dp"
+        android:text="@string/add"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/amznQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_toLeftOf="@+id/amznPrice"
+        android:gravity="center"
+        android:text="@string/amznQuantity"
+        android:onClick="showAmzn"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/amznName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/amznDelete"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/amznName"
+        android:onClick="showAmzn"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/amznPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/amznChange"
+        android:gravity="center"
+        android:text="@string/amznPrice"
+        android:onClick="showAmzn"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/amznChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/amznDelete"
+        android:gravity="center"
+        android:text="@string/amznChange"
+        android:textColor="@color/green"
+        android:onClick="showAmzn"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/amznValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/amznName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/amznValue"
+        android:onClick="showAmzn"
+        android:clickable="true"/>
+
+
+    <TextView
+        android:id="@+id/msftQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_toLeftOf="@+id/msftPrice"
+        android:gravity="center"
+        android:text="@string/msftQuantity"
+        android:onClick="showMsft"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/msftName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/msftDelete"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/msftName"
+        android:onClick="showMsft"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/msftPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/msftChange"
+        android:gravity="center"
+        android:text="@string/msftPrice"
+        android:onClick="showMsft"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/msftChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/msftDelete"
+        android:gravity="center"
+        android:text="@string/msftChange"
+        android:textColor="@color/orange"
+        android:onClick="showMsft"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/msftValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/msftName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/msftValue"
+        android:onClick="showMsft"
+        android:clickable="true" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/amznDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/msftDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+
+    <Button
+        android:id="@+id/amznDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignRight="@id/addButton"
+        android:layout_below="@id/addButton"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/msftDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/amznDelete"
+        android:layout_below="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp"
+        android:background="@color/teal"
+        android:text="@string/refresh"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/nintQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nintDelete"
+        android:layout_toLeftOf="@+id/nintPrice"
+        android:gravity="center"
+        android:text="@string/nintQuantity"
+        android:onClick="showNint"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/nintName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/nintDelete"
+        android:layout_alignLeft="@id/nintQuantity"
+
+
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/nintName"
+        android:onClick="showNint"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/nintPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nintDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/nintChange"
+        android:gravity="center"
+        android:text="@string/nintPrice"
+        android:onClick="showNint"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/nintChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nintDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/nintDelete"
+        android:gravity="center"
+        android:text="@string/nintChange"
+        android:textColor="@color/green"
+        android:onClick="showNint"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/nintValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/nintDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/nintName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/nintValue"
+        android:onClick="showNint"
+        android:clickable="true" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/nintDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/nintDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/msftDelete"
+        android:layout_below="@+id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/leafQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/leafDelete"
+        android:layout_toLeftOf="@+id/leafPrice"
+        android:gravity="center"
+        android:text="@string/leafQuantity"
+        android:onClick="showLeaf"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/leafName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/leafDelete"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/leafName"
+        android:onClick="showLeaf"
+        android:clickable="true"  />
+
+    <TextView
+        android:id="@+id/leafPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/leafDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/leafChange"
+        android:gravity="center"
+        android:text="@string/leafPrice"
+        android:onClick="showLeaf"
+        android:clickable="true"  />
+
+    <TextView
+        android:id="@+id/leafChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/leafDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/leafDelete"
+        android:gravity="center"
+        android:text="@string/leafChange"
+        android:textColor="@color/orange"
+        android:onClick="showLeaf"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/leafValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/leafDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/leafName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/leafValue"
+        android:onClick="showLeaf"
+        android:clickable="true"  />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/leafDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/leafDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/nintDelete"
+        android:layout_below="@+id/nintDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/netfQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/netfDelete"
+        android:layout_toLeftOf="@+id/netfPrice"
+        android:gravity="center"
+        android:text="@string/nintQuantity"
+        android:onClick="shownetf"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/netfName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/netfDelete"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/netfName"
+        android:onClick="shownetf"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/netfPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/netfDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/netfChange"
+        android:gravity="center"
+        android:text="@string/netfPrice"
+        android:onClick="shownetf"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/netfChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/netfDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/netfDelete"
+        android:gravity="center"
+        android:text="@string/netfChange"
+        android:textColor="@color/orange"
+        android:onClick="shownetf"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/netfValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/netfDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/netfName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/netfValue"
+        android:onClick="shownetf"
+        android:clickable="true" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/netfDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/netfDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/leafDelete"
+        android:layout_below="@+id/leafDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>
