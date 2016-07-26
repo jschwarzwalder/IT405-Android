@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_span="2"
+        android:gravity="center_horizontal"
+        android:text="@string/portofolioTitle"
+        android:textSize="30dp" />
+
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addButton"
+        android:layout_toLeftOf="@+id/qty"
+        android:layout_marginRight="20dp"
+        android:hint="@string/searchsymbol"
+        android:inputType="textShortMessage"
+        android:padding="15dp"
+        />
+
+    <EditText
+        android:id="@+id/qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:hint="@string/qty"
+        android:inputType="textShortMessage"
+        android:padding="15dp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/msftValue"
+        android:layout_toRightOf="@+id/msftValue"
+        android:layout_weight="1"
+        android:background="@color/teal"
+        android:padding="13dp"
+        android:text="@string/add"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/amznQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_toLeftOf="@+id/amznPrice"
+        android:gravity="center"
+        android:text="@string/amznQuantity" />
+
+    <TextView
+        android:id="@+id/amznName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/amznDelete"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/amznName" />
+
+    <TextView
+        android:id="@+id/amznPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/amznChange"
+        android:gravity="center"
+        android:text="@string/amznPrice" />
+
+    <TextView
+        android:id="@+id/amznChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/amznDelete"
+        android:gravity="center"
+        android:text="@string/amznChange"
+        android:textColor="@color/green" />
+
+    <TextView
+        android:id="@+id/amznValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/amznName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/amznValue" />
+
+
+    <TextView
+        android:id="@+id/msftQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_toLeftOf="@+id/msftPrice"
+        android:gravity="center"
+        android:text="@string/msftQuantity" />
+
+    <TextView
+        android:id="@+id/msftName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/msftDelete"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/msftName" />
+
+    <TextView
+        android:id="@+id/msftPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/msftChange"
+        android:gravity="center"
+        android:text="@string/msftPrice" />
+
+    <TextView
+        android:id="@+id/msftChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@id/msftDelete"
+        android:gravity="center"
+        android:text="(-0.29)"
+        android:textColor="@color/orange" />
+
+    <TextView
+        android:id="@+id/msftValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/msftDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/msftName"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/msftValue" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/amznDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/msftDelete"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+
+    <Button
+        android:id="@+id/amznDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignRight="@id/addButton"
+        android:layout_below="@id/addButton"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/msftDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/amznDelete"
+        android:layout_below="@+id/amznDelete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/teal"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp"
+        android:background="@color/teal"
+        android:text="@string/refresh"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
