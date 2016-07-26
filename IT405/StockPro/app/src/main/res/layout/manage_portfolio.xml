@@ -47,9 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/msftValue"
-        android:layout_toRightOf="@+id/msftValue"
+        android:layout_marginLeft="50dp"
         android:layout_weight="1"
+        android:layout_toRightOf="@+id/qty"
         android:background="@color/teal"
         android:padding="13dp"
         android:text="@string/add"
@@ -202,6 +202,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
         android:layout_weight="1"
+        android:onClick="onAmazonDelete"
         android:background="@color/teal"
         android:text="@string/delete"
         android:textColor="@color/white" />
@@ -214,6 +215,7 @@
         android:layout_below="@+id/amznDelete"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
+        android:onClick="onMicrosoftDelete"
         android:background="@color/teal"
         android:text="@string/delete"
         android:textColor="@color/white" />
@@ -309,6 +311,7 @@
         android:layout_below="@+id/msftDelete"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
+        android:onClick="onNintendoDelete"
         android:background="@color/teal"
         android:text="@string/delete"
         android:textColor="@color/white" />
@@ -329,6 +332,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/leafDelete"
+        android:layout_alignLeft="@id/leafQuantity"
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/leafName"
@@ -389,6 +393,7 @@
         android:layout_below="@+id/nintDelete"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
+        android:onClick="onSpringLeafDelete"
         android:background="@color/teal"
         android:text="@string/delete"
         android:textColor="@color/white" />
@@ -410,6 +415,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/netfDelete"
+        android:layout_alignLeft="@id/netfQuantity"
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/netfName"
@@ -470,6 +476,7 @@
         android:layout_below="@+id/leafDelete"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
+        android:onClick="onNetflixDelete"
         android:background="@color/teal"
         android:text="@string/delete"
         android:textColor="@color/white" />
