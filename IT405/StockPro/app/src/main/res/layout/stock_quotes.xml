@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:scrollIndicators="right"
+    android:foregroundGravity="fill_horizontal">
 
     <TextView
         android:id="@+id/symbol"
@@ -22,6 +24,14 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_weight="5"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/price"
@@ -96,6 +106,24 @@
             android:background="@color/teal"
             android:text="@string/more"
             android:layout_marginLeft="50dp"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            android:textColor="@color/white"
+            android:onClick="displayMore"
+            />
+
+        <Button
+            android:id="@+id/lessDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/teal"
+            android:text="@string/less"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/white"
+            android:onClick="displayLess"
+            android:visibility="gone"/>
+
+         </LinearLayout>
+
+
 </LinearLayout>

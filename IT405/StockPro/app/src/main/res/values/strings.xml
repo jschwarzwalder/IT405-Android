@@ -22,19 +22,15 @@
     <string name="msftQuantity">100 of MSFT</string>
     <string name="msftChange">(-0.29)</string>
     <string name="msftdesc">
-        Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington, that develops, manufactures, licenses, supports and sells computer software, consumer electronics and personal computers and services. Its best known software products are the Microsoft Windows line of operating systems, Microsoft Office office suite, and Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox game consoles and the Microsoft Surface tablet lineup. It is the world's largest software maker by revenue, and one of the world's most valuable companies.
-        Microsoft was founded by Paul Allen and Bill Gates on April 4, 1975, to develop and sell BASIC interpreters for Altair 8800. It rose to dominate the personal computer operating system market with MS-DOS in the mid-1980s, followed by Microsoft Windows. The company's 1986 initial public offering, and subsequent rise in its share price, created three billionaires and an estimated 12,000 millionaires among Microsoft employees. Since the 1990s, it has increasingly diversified from the operating system market and has made a number of corporate acquisitions. In May 2011, Microsoft acquired Skype Technologies for $8.5 billion in its largest acquisition to date, and in June 2016 announced plans to acquire LinkedIn for $26.2 billion.
-        As of 2015, Microsoft is market dominant in both the IBM PC-compatible operating system (while it lost the majority of the overall operating system market to Android) and office software suite markets (the latter with Microsoft Office). The company also produces a wide range of other software for desktops and servers, and is active in areas including Internet search (with Bing), the video game industry (with the Xbox, Xbox 360 and Xbox One consoles), the digital services market (through MSN), and mobile phones (via the operating systems of Nokia's former phones and Windows Phone OS). In June 2012, Microsoft entered the personal computer production market for the first time, with the launch of the Microsoft Surface, a line of tablet computers.
-    </string>
+        Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington, that develops, manufactures, licenses, supports and sells computer software, consumer electronics and personal computers and services. Its best known software products are the Microsoft Windows line of operating systems, Microsoft Office office suite, and Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox game consoles and the Microsoft Surface tablet lineup. It is the world\'s largest software maker by revenue, and one of the world\'s most valuable companies.
+     </string>
 
     <string name="amznValue">Value: 9286.40</string>
     <string name="amznChange">(+3.29)</string>
     <string name="amznPrice">464.32</string>
     <string name="amznName">Amazon Corporation</string>
     <string name="amznQuantity">200 of AMZN</string>
-    <string name="amzndesc">Amazon.com, Inc., often referred to as simply Amazon, is an American electronic commerce and cloud computing company with headquarters in Seattle, Washington. It is the largest Internet-based retailer in the United States and world by total sales and market capitalization  Amazon.com started as an online bookstore, later diversifying to sell DVDs, Blu-rays, CDs, video downloads/streaming, MP3 downloads/streaming, audiobook downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry. The company also produces consumer electronics—notably, Amazon Kindle e-readers, Fire tablets, and Fire TV —and is the world's largest provider of cloud infrastructure services (IaaS). Amazon also sells certain low-end products like USB cables under its in-house brand AmazonBasics.
-        Amazon has separate retail websites for United States, United Kingdom and Ireland, France, Canada, Germany, Italy, Spain, Netherlands, Australia, Brazil, Japan, China, India and Mexico. Amazon also offers international shipping to certain other countries for some of its products. In 2011, it professed an intention to launch its websites in Poland and Sweden.
-        In 2015, Amazon surpassed Walmart as the most valuable retailer in the United States by market capitalization.
+    <string name="amzndesc">Amazon.com, Inc., often referred to as simply Amazon, is an American electronic commerce and cloud computing company with headquarters in Seattle, Washington. It is the largest Internet-based retailer in the United States and world by total sales and market capitalization  Amazon.com started as an online bookstore, later diversifying to sell DVDs, Blu-rays, CDs, video downloads/streaming, MP3 downloads/streaming, audiobook downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry. The company also produces consumer electronics—notably, Amazon Kindle e-readers, Fire tablets, and Fire TV —and is the world\'s largest provider of cloud infrastructure services (IaaS). Amazon also sells certain low-end products like USB cables under its in-house brand AmazonBasics.
     </string>
 
     <string name="nintValue">Value: 3483000.00</string>
@@ -43,9 +39,7 @@
     <string name="nintName">Nintendo</string>
     <string name="nintQuantity">150 of JPY</string>
     <string name ="nintdesc">
-        Nintendo Co., Ltd. is a Japanese multinational consumer electronics and software company headquartered in Kyoto, Japan. Nintendo is the world's largest video game company by revenue. Founded on September 23, 1889, by Fusajiro Yamauchi, it originally produced handmade hanafuda playing cards. By 1963, the company had tried several small niche businesses, such as cab services and love hotels. The word Nintendo can be roughly translated from Japanese to English as "leave luck to heaven".
-        Abandoning previous ventures in favor of toys in the 1960s, Nintendo then developed into a video game company in the 1970s, ultimately becoming one of the most influential in the industry and Japan's third most-valuable company with a market value of over $85 billion. Nintendo of America is also the majority owner of Major League Baseball's Seattle Mariners.
-        As of March 31, 2014, Nintendo has cumulative sales of over 670.43 million hardware units and 4.23 billion software units. The company has created some of the most well known and best-selling video game franchises in the industry, such as Mario, The Legend of Zelda, and Metroid, while also partially owning The Pokémon Company. The Financial Times remarks that "Nintendo holds some of the most valuable character intellectual property in the world."
+        Nintendo Co., Ltd. is a Japanese multinational consumer electronics and software company headquartered in Kyoto, Japan. Nintendo is the world\'s largest video game company by revenue. Founded on September 23, 1889, by Fusajiro Yamauchi, it originally produced handmade hanafuda playing cards. By 1963, the company had tried several small niche businesses, such as cab services and love hotels. The word Nintendo can be roughly translated from Japanese to English as "leave luck to heaven".
 
     </string>
 
@@ -65,8 +59,8 @@
     <string name="netfChange">(-.10)</string>
     <string name="netfdesc">
             Netflix Inc. is an American multinational entertainment company founded on August 29, 1997 in Scotts Valley, California by Reed Hastings and Marc Randolph. It specializes and provides streaming media and video on demand both online and physically, and recently a film and television producer, as well as online distributor. It is currently headquartered in Los Gatos.
-            In 1998, about a year after Netflix's founding, the company grew by starting in the DVD by mail business. In 2007, Netflix expanded their business with the introduction of streaming media, as well as retaining the DVD and Blu-Ray rental service, with streaming available to Canada in 2010 and as of 2016, now serves over 190 countries. In 2013, Netflix introduced itself into the film and television industry, with its first series being House of Cards, which debuted in the same year, greatly expanding into film in 2015, and now offers its "Netflix Original" content abroad its online library of films and television.
-            As of July 2016, Netflix reported over 83 million subscribers worldwide, including more than 47 million in the U.S.
+            \n\nIn 1998, about a year after Netflix\'s founding, the company grew by starting in the DVD by mail business. In 2007, Netflix expanded their business with the introduction of streaming media, as well as retaining the DVD and Blu-Ray rental service, with streaming available to Canada in 2010 and as of 2016, now serves over 190 countries. In 2013, Netflix introduced itself into the film and television industry, with its first series being House of Cards, which debuted in the same year, greatly expanding into film in 2015, and now offers its "Netflix Original" content abroad its online library of films and television.
+
 
     </string>
 
@@ -83,5 +77,8 @@
     <string name="list">List</string>
     <string name="more">More</string>
     <string name="total_value">Total Value: XXXXXX.XX</string>
+    <string name="less">Less</string>
+    <string name="displayMoreButtonSettings">Display More Button</string>
+    <string name="displayMoreButtonSettingsDesc">Show More Button to get details of the company</string>
 
 </resources>

@@ -9,6 +9,17 @@ import android.widget.TextView;
 
 public class StockDetail extends AppCompatActivity {
 
+    private String symbol;
+    private String name;
+    private int price;
+    private int change;
+    private int high;
+    private int low;
+    private int volume;
+    private boolean displayMore;
+    private int descID;
+    private boolean descView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,14 +31,20 @@ public class StockDetail extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         Bundle b = getIntent().getExtras();
-        String symbol = b.getString("symbol");
-        String name = b.getString("name");
-        int price = b.getInt("price");
-        int change = b.getInt("change");
-        int high = b.getInt("high");
-        int low = b.getInt("low");
-        int volume = b.getInt("volume");
-        boolean more = b.getBoolean("more");
+        setFields(b);
+    }
+
+    private void setFields(Bundle b) {
+        symbol = b.getString("symbol");
+        name = b.getString("name");
+        price = b.getInt("price");
+        change = b.getInt("change");
+        high = b.getInt("high");
+        low = b.getInt("low");
+        volume = b.getInt("volume");
+        displayMore = b.getBoolean("more");
+        descID = b.getInt("descID");
+
 
         TextView newSymbol = (TextView)findViewById(R.id.symbol);
         newSymbol.setText("SYMBOL: " + symbol);
@@ -57,11 +74,86 @@ public class StockDetail extends AppCompatActivity {
         TextView newVolume = (TextView)findViewById(R.id.volume);
         newVolume.setText(String.format("Volume: %d", volume));
 
+        if (displayMore == false)
+        {
+            findViewById(R.id.moreDetail).setVisibility(View.INVISIBLE);
+        }
 
+        TextView newDesc = (TextView)findViewById(R.id.desc);
+        newDesc.setText(getString(descID));
     }
 
     public void backtoList(View view){
-        Intent i = new Intent (this, MainActivity.class);
-        startActivity(i);
+//        Intent i = new Intent (this, MainActivity.class);
+//        startActivity(i);
+        finish();
     }
+
+    public void displayMore(View view){
+        displayMore();
+
+        descView = true;
+    }
+
+    public void displayMore() {
+        findViewById(R.id.symbol).setVisibility(View.GONE);
+        findViewById(R.id.high).setVisibility(View.GONE);
+        findViewById(R.id.low).setVisibility(View.GONE);
+        findViewById(R.id.volume).setVisibility(View.GONE);
+        findViewById(R.id.change).setVisibility(View.GONE);
+        findViewById(R.id.price).setVisibility(View.GONE);
+
+
+        findViewById(R.id.desc).setVisibility(View.VISIBLE);
+
+        findViewById(R.id.moreDetail).setVisibility(View.GONE);
+        findViewById(R.id.lessDetail).setVisibility(View.VISIBLE);
+    }
+
+    public void displayLess(View view) {
+        findViewById(R.id.symbol).setVisibility(View.VISIBLE);
+        findViewById(R.id.high).setVisibility(View.VISIBLE);
+        findViewById(R.id.low).setVisibility(View.VISIBLE);
+        findViewById(R.id.volume).setVisibility(View.VISIBLE);
+        findViewById(R.id.change).setVisibility(View.VISIBLE);
+        findViewById(R.id.price).setVisibility(View.VISIBLE);
+
+
+        findViewById(R.id.desc).setVisibility(View.GONE);
+
+        findViewById(R.id.moreDetail).setVisibility(View.VISIBLE);
+        findViewById(R.id.lessDetail).setVisibility(View.GONE);
+
+        descView = false;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle b)
+    {
+
+        b.putString("symbol", symbol);
+        b.putString("name", name);
+        b.putInt("price", price);
+        b.putInt("change", change);
+        b.putInt("high", high);
+        b.putInt("low", low);
+        b.putInt("volume", volume);
+        b.putBoolean("more", displayMore);
+        b.putInt("descID", descID);
+        b.putBoolean("descView", descView);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        setFields(savedInstanceState);
+
+        descView = savedInstanceState.getBoolean("descView");
+
+        if (descView)
+        {
+            displayMore();
+        }
+    }
+
 }
