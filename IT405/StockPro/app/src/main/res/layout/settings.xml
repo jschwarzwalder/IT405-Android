@@ -27,6 +27,7 @@
             <TextView
                 android:width="300dp"
                 android:paddingLeft="10dp"
+                android:layout_gravity="bottom"
                 android:text="@string/backgroundSyncSettings"
                 android:textStyle="bold" />
 
@@ -38,7 +39,7 @@
                 android:width="50dp"
                 android:buttonTint="@color/teal"
                 android:checked="true"
-                android:onClick="onCheckboxClicked"
+                android:onClick="onBackgroundSyncClicked"
 
 
                 />
@@ -50,6 +51,38 @@
                 android:width="300dp"
                 android:paddingLeft="10dp"
                 android:text="@string/backgroundSyncSettingsDesc" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:width="300dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="bottom"
+                android:text="@string/displayMoreButtonSettings"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/displayMoreBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:width="50dp"
+                android:buttonTint="@color/teal"
+                android:checked="true"
+                android:onClick="onDisplayMoreButtonClicked"
+
+
+                />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:width="300dp"
+                android:paddingLeft="10dp"
+                android:text="@string/displayMoreButtonSettingsDesc" />
 
         </TableRow>
 
@@ -69,7 +102,8 @@
             android:layout_marginBottom="25dp"
             android:background="@color/teal"
             android:text="@string/save"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:onClick="backtoList"/>
     </RelativeLayout>
 
 </RelativeLayout>

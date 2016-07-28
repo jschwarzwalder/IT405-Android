@@ -8,10 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     boolean displayMore = true;
+
+    final static int MY_ID = 434;
+
     private final static String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.msftDelete).setVisibility(View.GONE);
     }
 
-    public void showMsft(View view){
+    public void showMsft(View view) {
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
         b.putString("name", "Microsoft");
@@ -92,11 +96,13 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("high", 7256);
         b.putInt("low", 5432);
         b.putInt("volume", 24565612);
+        b.putInt("descID", R.string.msftdesc);
+        b.putBoolean("more", displayMore);
         i.putExtras(b);
         startActivity(i);
     }
 
-    public void showAmzn(View view){
+    public void showAmzn(View view) {
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
         b.putString("name", "Amazon Corporation");
@@ -106,25 +112,29 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("high", 67232);
         b.putInt("low", 37223);
         b.putInt("volume", 3200057);
+        b.putInt("descID", R.string.amzndesc);
+        b.putBoolean("more", displayMore);
         i.putExtras(b);
         startActivity(i);
     }
 
-    public void showNint(View view){
+    public void showNint(View view) {
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
         b.putString("name", "Nintendo");
         b.putString("symbol", "JPY");
         b.putInt("price", 2322000);
-        b.putInt("change", 5000);
+        b.putInt("change", 500000);
         b.putInt("high", 2822000);
         b.putInt("low", 1058634);
         b.putInt("volume", 1234589);
+        b.putInt("descID", R.string.nintdesc);
+        b.putBoolean("more", displayMore);
         i.putExtras(b);
         startActivity(i);
     }
 
-    public void showLeaf(View view){
+    public void showLeaf(View view) {
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
         b.putString("name", "Springleaf");
@@ -134,11 +144,13 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("high", 6725);
         b.putInt("low", 3358);
         b.putInt("volume", 4556879);
+        b.putInt("descID", R.string.leafdesc);
+        b.putBoolean("more", displayMore);
         i.putExtras(b);
         startActivity(i);
     }
 
-    public void shownetf(View view){
+    public void shownetf(View view) {
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
         b.putString("name", "Netflix");
@@ -148,12 +160,35 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("high", 14635);
         b.putInt("low", 8589);
         b.putInt("volume", 54682317);
+        b.putInt("descID", R.string.netfdesc);
+        b.putBoolean("more", displayMore);
         i.putExtras(b);
         startActivity(i);
     }
 
-    public void openSettings(View view){
-        Intent i = new Intent (this, Settings.class);
-        startActivity(i);
+    public void showSettings(View view) {
+        Intent i = new Intent(this, Settings.class);
+
+        i.putExtra("displayMore", displayMore);
+        startActivityForResult(i, MY_ID);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent i) {
+
+        Log.d(TAG, "onActivityResult()");
+
+
+        if ((requestCode == MY_ID) && (resultCode == RESULT_OK)) {
+
+            // check for data that may have returned from the second activity
+
+            if (i.hasExtra("displayMore")) {
+                displayMore = i.getExtras().getBoolean("displayMore");
+            }
+
+        }
+
+        super.onActivityResult(requestCode, resultCode, i);
     }
 }
