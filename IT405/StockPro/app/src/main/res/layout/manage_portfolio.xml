@@ -67,7 +67,8 @@
         android:background="@color/teal"
         android:padding="13dp"
         android:text="@string/add"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:onClick="onAdd"/>
 
     <TextView
         android:id="@+id/amznQuantity"
@@ -244,6 +245,7 @@
         android:layout_marginBottom="25dp"
         android:background="@color/teal"
         android:text="@string/refresh"
+        android:onClick="Refresh"
         android:textColor="@color/white" />
 
     <TextView
