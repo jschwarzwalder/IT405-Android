@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -84,66 +85,88 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAdd(View v) {
-        String symbolSearch = ((TextView) findViewById(R.id.search)).getText().toString().toUpperCase();
-        //Log.d(TAG, symbolSearch);
+        CharSequence symbol = ((TextView) findViewById(R.id.search)).getText();
+        String symbolSearch = "";
+        if (symbol.length() != 0) {
+            symbolSearch = symbol.toString().toUpperCase();
+            //Log.d(TAG, symbolSearch);
+        } else {
+            Toast.makeText(this, "Enter a Stock Symbol", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Stock thisStock = stocks.get(symbolSearch);
-        int addQty = Integer.parseInt(((TextView) findViewById(R.id.qty)).getText().toString());
-        thisStock.setQuantity(thisStock.getQuantity() + addQty);
-        switch (symbolSearch) {
-            case "AMZN":
-                findViewById(R.id.amznPrice).setVisibility(View.VISIBLE);
-                ((TextView) findViewById(R.id.amznQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                findViewById(R.id.amznQuantity).setVisibility(View.VISIBLE);
-                findViewById(R.id.amznChange).setVisibility(View.VISIBLE);
-                findViewById(R.id.amznName).setVisibility(View.VISIBLE);
-                ((TextView) findViewById(R.id.amznValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
-                findViewById(R.id.amznValue).setVisibility(View.VISIBLE);
-                findViewById(R.id.amznDelete).setVisibility(View.VISIBLE);
-                break;
-            case "MSFT":
-                ((TextView) findViewById(R.id.msftQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                ((TextView) findViewById(R.id.msftValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
 
-                findViewById(R.id.msftPrice).setVisibility(View.VISIBLE);
-                findViewById(R.id.msftQuantity).setVisibility(View.VISIBLE);
-                findViewById(R.id.msftChange).setVisibility(View.VISIBLE);
-                findViewById(R.id.msftName).setVisibility(View.VISIBLE);
-                findViewById(R.id.msftValue).setVisibility(View.VISIBLE);
-                findViewById(R.id.msftDelete).setVisibility(View.VISIBLE);
-                break;
-            case "JPY":
-                ((TextView) findViewById(R.id.nintQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                ((TextView) findViewById(R.id.nintValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
 
-                findViewById(R.id.nintPrice).setVisibility(View.VISIBLE);
-                findViewById(R.id.nintQuantity).setVisibility(View.VISIBLE);
-                findViewById(R.id.nintChange).setVisibility(View.VISIBLE);
-                findViewById(R.id.nintName).setVisibility(View.VISIBLE);
-                findViewById(R.id.nintValue).setVisibility(View.VISIBLE);
-                findViewById(R.id.nintDelete).setVisibility(View.VISIBLE);
-                break;
-            case "LEAF":
-                ((TextView) findViewById(R.id.leafQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                ((TextView) findViewById(R.id.leafValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+        CharSequence qty = ((TextView) findViewById(R.id.qty)).getText();
+        int addQty = 0;
+        if (qty.length() != 0) {
+             addQty = Integer.parseInt(qty.toString());
+        } else {
+            Toast.makeText(this, "Enter a Numeric Quantity", Toast.LENGTH_SHORT).show();
+            return;
 
-                findViewById(R.id.leafPrice).setVisibility(View.VISIBLE);
-                findViewById(R.id.leafQuantity).setVisibility(View.VISIBLE);
-                findViewById(R.id.leafChange).setVisibility(View.VISIBLE);
-                findViewById(R.id.leafName).setVisibility(View.VISIBLE);
-                findViewById(R.id.leafValue).setVisibility(View.VISIBLE);
-                findViewById(R.id.leafDelete).setVisibility(View.VISIBLE);
-                break;
-            case "NFLX":
-                ((TextView) findViewById(R.id.netfQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                ((TextView) findViewById(R.id.netfValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+        }
+        if (thisStock != null) {
+            thisStock.setQuantity(thisStock.getQuantity() + addQty);
+            switch (symbolSearch) {
+                case "AMZN":
+                    findViewById(R.id.amznPrice).setVisibility(View.VISIBLE);
+                    ((TextView) findViewById(R.id.amznQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
+                    findViewById(R.id.amznQuantity).setVisibility(View.VISIBLE);
+                    findViewById(R.id.amznChange).setVisibility(View.VISIBLE);
+                    findViewById(R.id.amznName).setVisibility(View.VISIBLE);
+                    ((TextView) findViewById(R.id.amznValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+                    findViewById(R.id.amznValue).setVisibility(View.VISIBLE);
+                    findViewById(R.id.amznDelete).setVisibility(View.VISIBLE);
+                    break;
+                case "MSFT":
+                    ((TextView) findViewById(R.id.msftQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
+                    ((TextView) findViewById(R.id.msftValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
 
-                findViewById(R.id.netfPrice).setVisibility(View.VISIBLE);
-                findViewById(R.id.netfQuantity).setVisibility(View.VISIBLE);
-                findViewById(R.id.netfChange).setVisibility(View.VISIBLE);
-                findViewById(R.id.netfName).setVisibility(View.VISIBLE);
-                findViewById(R.id.netfValue).setVisibility(View.VISIBLE);
-                findViewById(R.id.netfDelete).setVisibility(View.VISIBLE);
-                break;
+                    findViewById(R.id.msftPrice).setVisibility(View.VISIBLE);
+                    findViewById(R.id.msftQuantity).setVisibility(View.VISIBLE);
+                    findViewById(R.id.msftChange).setVisibility(View.VISIBLE);
+                    findViewById(R.id.msftName).setVisibility(View.VISIBLE);
+                    findViewById(R.id.msftValue).setVisibility(View.VISIBLE);
+                    findViewById(R.id.msftDelete).setVisibility(View.VISIBLE);
+                    break;
+                case "JPY":
+                    ((TextView) findViewById(R.id.nintQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
+                    ((TextView) findViewById(R.id.nintValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+
+                    findViewById(R.id.nintPrice).setVisibility(View.VISIBLE);
+                    findViewById(R.id.nintQuantity).setVisibility(View.VISIBLE);
+                    findViewById(R.id.nintChange).setVisibility(View.VISIBLE);
+                    findViewById(R.id.nintName).setVisibility(View.VISIBLE);
+                    findViewById(R.id.nintValue).setVisibility(View.VISIBLE);
+                    findViewById(R.id.nintDelete).setVisibility(View.VISIBLE);
+                    break;
+                case "LEAF":
+                    ((TextView) findViewById(R.id.leafQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
+                    ((TextView) findViewById(R.id.leafValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+
+                    findViewById(R.id.leafPrice).setVisibility(View.VISIBLE);
+                    findViewById(R.id.leafQuantity).setVisibility(View.VISIBLE);
+                    findViewById(R.id.leafChange).setVisibility(View.VISIBLE);
+                    findViewById(R.id.leafName).setVisibility(View.VISIBLE);
+                    findViewById(R.id.leafValue).setVisibility(View.VISIBLE);
+                    findViewById(R.id.leafDelete).setVisibility(View.VISIBLE);
+                    break;
+                case "NFLX":
+                    ((TextView) findViewById(R.id.netfQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
+                    ((TextView) findViewById(R.id.netfValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+
+                    findViewById(R.id.netfPrice).setVisibility(View.VISIBLE);
+                    findViewById(R.id.netfQuantity).setVisibility(View.VISIBLE);
+                    findViewById(R.id.netfChange).setVisibility(View.VISIBLE);
+                    findViewById(R.id.netfName).setVisibility(View.VISIBLE);
+                    findViewById(R.id.netfValue).setVisibility(View.VISIBLE);
+                    findViewById(R.id.netfDelete).setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
+                    break;
+            }
         }
 
 

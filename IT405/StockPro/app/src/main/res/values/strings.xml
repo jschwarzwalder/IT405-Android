@@ -16,45 +16,45 @@
     <string name="refresh">Refresh</string>
     <string name="delete">Del</string>
 
-    <string name="msftValue">Value: 6267.00</string>
+    <string name="msftValue">Value: 0.00</string>
     <string name="msftPrice">62.67</string>
     <string name="msftName">Microsoft Corporation</string>
-    <string name="msftQuantity">100 of MSFT</string>
+    <string name="msftQuantity">0 of MSFT</string>
     <string name="msftChange">(-0.29)</string>
     <string name="msftdesc">
         Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington, that develops, manufactures, licenses, supports and sells computer software, consumer electronics and personal computers and services. Its best known software products are the Microsoft Windows line of operating systems, Microsoft Office office suite, and Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox game consoles and the Microsoft Surface tablet lineup. It is the world\'s largest software maker by revenue, and one of the world\'s most valuable companies.
      </string>
 
-    <string name="amznValue">Value: 9286.40</string>
+    <string name="amznValue">Value: 0.00</string>
     <string name="amznChange">(+3.29)</string>
     <string name="amznPrice">464.32</string>
     <string name="amznName">Amazon Corporation</string>
-    <string name="amznQuantity">200 of AMZN</string>
+    <string name="amznQuantity">0 of AMZN</string>
     <string name="amzndesc">Amazon.com, Inc., often referred to as simply Amazon, is an American electronic commerce and cloud computing company with headquarters in Seattle, Washington. It is the largest Internet-based retailer in the United States and world by total sales and market capitalization  Amazon.com started as an online bookstore, later diversifying to sell DVDs, Blu-rays, CDs, video downloads/streaming, MP3 downloads/streaming, audiobook downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry. The company also produces consumer electronics—notably, Amazon Kindle e-readers, Fire tablets, and Fire TV —and is the world\'s largest provider of cloud infrastructure services (IaaS). Amazon also sells certain low-end products like USB cables under its in-house brand AmazonBasics.
     </string>
 
-    <string name="nintValue">Value: 3483000.00</string>
+    <string name="nintValue">Value: 0.00</string>
     <string name="nintChange">(+5000)</string>
     <string name="nintPrice">23220.00</string>
     <string name="nintName">Nintendo</string>
-    <string name="nintQuantity">150 of JPY</string>
+    <string name="nintQuantity">0 of JPY</string>
     <string name ="nintdesc">
         Nintendo Co., Ltd. is a Japanese multinational consumer electronics and software company headquartered in Kyoto, Japan. Nintendo is the world\'s largest video game company by revenue. Founded on September 23, 1889, by Fusajiro Yamauchi, it originally produced handmade hanafuda playing cards. By 1963, the company had tried several small niche businesses, such as cab services and love hotels. The word Nintendo can be roughly translated from Japanese to English as "leave luck to heaven".
 
     </string>
 
-    <string name="leafValue">Value: 4868.00</string>
+    <string name="leafValue">Value: 0.00</string>
     <string name="leafChange">(-.46)</string>
     <string name="leafPrice">48.68</string>
     <string name="leafName">Springleaf</string>
-    <string name="leafQuantity">100 of LEAF</string>
+    <string name="leafQuantity">0 of LEAF</string>
     <string name="leafdesc">
         Springleaf Financial Services, previously known as American General Finance, is a company whose primary business is consumer lending, credit insurance, and other credit related products. Its corporate headquarters are in Evansville, Indiana. Following an announced acquisition of OneMain Financial, the combined company will have $13.96 billion in core consumer net finance receivables and nearly 2,000 branches across 43 states. Springleaf is traded on the NYSE under the ticker symbol "LEAF"; AIG and Fortress Investment Group remain majority owners of the company.
     </string>
 
     <string name="netfName">Netflix</string>
-    <string name="netfValue">4294.50</string>
-    <string name="netfQuantity">50 of NFLX</string>
+    <string name="netfValue">0.00</string>
+    <string name="netfQuantity">0 of NFLX</string>
     <string name="netfPrice">85.89</string>
     <string name="netfChange">(-.10)</string>
     <string name="netfdesc">
