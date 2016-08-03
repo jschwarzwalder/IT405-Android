@@ -42,34 +42,34 @@ public class MainActivity extends AppCompatActivity {
                 -29, //Change in Pennies
                 7256, // High
                 5432, // Low
-                3200057, // Volume
+                24565612, // Volume
                 R.string.msftdesc);
 
         Stock jpy = new Stock("JPY",
                 getString(R.string.nintName),
                 2322000, //Current Price in Pennies
                 500000, //Change in Pennies
-                67232, // High
-                37223, // Low
-                3200057, // Volume
+                2822000, // High
+                1058634, // Low
+                123456789, // Volume
                 R.string.nintdesc);
 
         Stock leaf = new Stock("LEAF",
                 getString(R.string.leafName),
                 4868, //Current Price in Pennies
                 -46, //Change in Pennies
-                67232, // High
-                37223, // Low
-                3200057, // Volume
+                6725, // High
+                3358, // Low
+                4556879, // Volume
                 R.string.leafdesc);
 
         Stock netf = new Stock("NFLX",
                 getString(R.string.netfName),
-                429490, //Current Price in Pennies
+                8589, //Current Price in Pennies
                 -10, //Change in Pennies
-                67232, // High
-                37223, // Low
-                3200057, // Volume
+                14635, // High
+                8589, // Low
+                54682317, // Volume
                 R.string.netfdesc);
 
         stocks.put("AMZN", amz);
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         stocks.put("JPY", jpy);
         stocks.put("LEAF", leaf);
         stocks.put("NFLX", netf);
+
     }
 
     protected void onResume(Bundle savedInstanceState) {
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         CharSequence qty = ((TextView) findViewById(R.id.qty)).getText();
         int addQty = 0;
         if (qty.length() != 0) {
-             addQty = Integer.parseInt(qty.toString());
+            addQty = Integer.parseInt(qty.toString());
         } else {
             Toast.makeText(this, "Enter a Numeric Quantity", Toast.LENGTH_SHORT).show();
             return;
@@ -118,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
                     ((TextView) findViewById(R.id.amznValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
                     findViewById(R.id.amznValue).setVisibility(View.VISIBLE);
                     findViewById(R.id.amznDelete).setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Amazon Stock Added", Toast.LENGTH_SHORT).show();
+
                     break;
                 case "MSFT":
                     ((TextView) findViewById(R.id.msftQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
@@ -129,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.msftName).setVisibility(View.VISIBLE);
                     findViewById(R.id.msftValue).setVisibility(View.VISIBLE);
                     findViewById(R.id.msftDelete).setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Microsoft Stock Added", Toast.LENGTH_SHORT).show();
+
                     break;
                 case "JPY":
                     ((TextView) findViewById(R.id.nintQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
@@ -140,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.nintName).setVisibility(View.VISIBLE);
                     findViewById(R.id.nintValue).setVisibility(View.VISIBLE);
                     findViewById(R.id.nintDelete).setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Nintendo Stock Added", Toast.LENGTH_SHORT).show();
+
                     break;
                 case "LEAF":
                     ((TextView) findViewById(R.id.leafQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
@@ -151,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.leafName).setVisibility(View.VISIBLE);
                     findViewById(R.id.leafValue).setVisibility(View.VISIBLE);
                     findViewById(R.id.leafDelete).setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Springleaf Stock Added", Toast.LENGTH_SHORT).show();
+
                     break;
                 case "NFLX":
                     ((TextView) findViewById(R.id.netfQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
@@ -162,11 +171,15 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.netfName).setVisibility(View.VISIBLE);
                     findViewById(R.id.netfValue).setVisibility(View.VISIBLE);
                     findViewById(R.id.netfDelete).setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Netflix Stock Added", Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
                     break;
             }
+        } else {
+
+            Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -271,81 +284,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void showMsft(View view) {
+    public void showStock(View view) {
+        String symbolSearch = view.getTag().toString();
+        Stock thisStock = stocks.get(symbolSearch);
         Intent i = new Intent(this, StockDetail.class);
         Bundle b = new Bundle();
-        b.putString("name", "Microsoft");
-        b.putString("symbol", "MSFT");
-        b.putInt("price", 6767);
-        b.putInt("change", -29);
-        b.putInt("high", 7256);
-        b.putInt("low", 5432);
-        b.putInt("volume", 24565612);
-        b.putInt("descID", R.string.msftdesc);
-        b.putBoolean("more", displayMore);
-        i.putExtras(b);
-        startActivity(i);
-    }
-
-    public void showAmzn(View view) {
-        Intent i = new Intent(this, StockDetail.class);
-        Bundle b = new Bundle();
-        b.putString("name", "Amazon Corporation");
-        b.putString("symbol", "AMZN");
-        b.putInt("price", 46432);
-        b.putInt("change", 329);
-        b.putInt("high", 67232);
-        b.putInt("low", 37223);
-        b.putInt("volume", 3200057);
-        b.putInt("descID", R.string.amzndesc);
-        b.putBoolean("more", displayMore);
-        i.putExtras(b);
-        startActivity(i);
-    }
-
-    public void showNint(View view) {
-        Intent i = new Intent(this, StockDetail.class);
-        Bundle b = new Bundle();
-        b.putString("name", "Nintendo");
-        b.putString("symbol", "JPY");
-        b.putInt("price", 2322000);
-        b.putInt("change", 500000);
-        b.putInt("high", 2822000);
-        b.putInt("low", 1058634);
-        b.putInt("volume", 1234589);
-        b.putInt("descID", R.string.nintdesc);
-        b.putBoolean("more", displayMore);
-        i.putExtras(b);
-        startActivity(i);
-    }
-
-    public void showLeaf(View view) {
-        Intent i = new Intent(this, StockDetail.class);
-        Bundle b = new Bundle();
-        b.putString("name", "Springleaf");
-        b.putString("symbol", "LEAF");
-        b.putInt("price", 4868);
-        b.putInt("change", -46);
-        b.putInt("high", 6725);
-        b.putInt("low", 3358);
-        b.putInt("volume", 4556879);
-        b.putInt("descID", R.string.leafdesc);
-        b.putBoolean("more", displayMore);
-        i.putExtras(b);
-        startActivity(i);
-    }
-
-    public void shownetf(View view) {
-        Intent i = new Intent(this, StockDetail.class);
-        Bundle b = new Bundle();
-        b.putString("name", "Netflix");
-        b.putString("symbol", "NFLX");
-        b.putInt("price", 8589);
-        b.putInt("change", -10);
-        b.putInt("high", 14635);
-        b.putInt("low", 8589);
-        b.putInt("volume", 54682317);
-        b.putInt("descID", R.string.netfdesc);
+        b.putString("name", thisStock.getName());
+        b.putString("symbol", thisStock.getSymbol());
+        b.putInt("price", thisStock.getPrice());
+        b.putInt("change", thisStock.getChange());
+        b.putInt("high", thisStock.getHigh());
+        b.putInt("low", thisStock.getLow());
+        b.putInt("volume", thisStock.getVolume());
+        b.putInt("descID", thisStock.getDescID());
         b.putBoolean("more", displayMore);
         i.putExtras(b);
         startActivity(i);

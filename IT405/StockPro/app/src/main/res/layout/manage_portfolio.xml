@@ -78,7 +78,7 @@
         android:layout_toLeftOf="@+id/amznPrice"
         android:gravity="center"
         android:text="@string/amznQuantity"
-        android:onClick="showAmzn"
+        android:onClick="showStock(Stock amzn)"
         android:clickable="true"/>
 
     <TextView
@@ -89,7 +89,7 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/amznName"
-        android:onClick="showAmzn"
+        android:onClick="showStock(Stock amzn)"
         android:clickable="true"/>
 
     <TextView
@@ -101,7 +101,7 @@
         android:layout_toLeftOf="@+id/amznChange"
         android:gravity="center"
         android:text="@string/amznPrice"
-        android:onClick="showAmzn"
+        android:onClick="showStock(Stock amzn)"
         android:clickable="true"/>
 
     <TextView
@@ -114,7 +114,7 @@
         android:gravity="center"
         android:text="@string/amznChange"
         android:textColor="@color/green"
-        android:onClick="showAmzn"
+        android:onClick="showStock(Stock amzn)"
         android:clickable="true" />
 
     <TextView
@@ -127,7 +127,7 @@
         android:gravity="center"
         android:paddingRight="10dp"
         android:text="@string/amznValue"
-        android:onClick="showAmzn"
+        android:onClick="showStock(Stock amzn)"
         android:clickable="true"/>
 
 
@@ -139,7 +139,7 @@
         android:layout_toLeftOf="@+id/msftPrice"
         android:gravity="center"
         android:text="@string/msftQuantity"
-        android:onClick="showMsft"
+        android:onClick="showStock(Stock msft)"
         android:clickable="true"/>
 
     <TextView
@@ -150,7 +150,7 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/msftName"
-        android:onClick="showMsft"
+        android:onClick="showStock(Stock msft)"
         android:clickable="true"/>
 
     <TextView
@@ -162,7 +162,7 @@
         android:layout_toLeftOf="@+id/msftChange"
         android:gravity="center"
         android:text="@string/msftPrice"
-        android:onClick="showMsft"
+        android:onClick="showStock(Stock msft)"
         android:clickable="true" />
 
     <TextView
@@ -175,7 +175,7 @@
         android:gravity="center"
         android:text="@string/msftChange"
         android:textColor="@color/orange"
-        android:onClick="showMsft"
+        android:onClick="showStock(Stock msft)"
         android:clickable="true"/>
 
     <TextView
@@ -188,7 +188,7 @@
         android:gravity="center"
         android:paddingRight="10dp"
         android:text="@string/msftValue"
-        android:onClick="showMsft"
+        android:onClick="showStock(Stock msft)"
         android:clickable="true" />
 
     <View
@@ -256,7 +256,7 @@
         android:layout_toLeftOf="@+id/nintPrice"
         android:gravity="center"
         android:text="@string/nintQuantity"
-        android:onClick="showNint"
+        android:onClick="showStock(Stock jpy)"
         android:clickable="true" />
 
     <TextView
@@ -270,7 +270,7 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/nintName"
-        android:onClick="showNint"
+        android:onClick="showStock(Stock jpy)"
         android:clickable="true" />
 
     <TextView
@@ -282,7 +282,7 @@
         android:layout_toLeftOf="@+id/nintChange"
         android:gravity="center"
         android:text="@string/nintPrice"
-        android:onClick="showNint"
+        android:onClick="showStock(Stock jpy)"
         android:clickable="true" />
 
     <TextView
@@ -295,7 +295,7 @@
         android:gravity="center"
         android:text="@string/nintChange"
         android:textColor="@color/green"
-        android:onClick="showNint"
+        android:onClick="showStock(Stock jpy)"
         android:clickable="true" />
 
     <TextView
@@ -308,7 +308,7 @@
         android:gravity="center"
         android:paddingRight="10dp"
         android:text="@string/nintValue"
-        android:onClick="showNint"
+        android:onClick="showStock(Stock jpy)"
         android:clickable="true" />
 
     <View
@@ -340,7 +340,7 @@
         android:layout_toLeftOf="@+id/leafPrice"
         android:gravity="center"
         android:text="@string/leafQuantity"
-        android:onClick="showLeaf"
+        android:onClick="showStock(Stock leaf)"
         android:clickable="true" />
 
     <TextView
@@ -352,7 +352,7 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/leafName"
-        android:onClick="showLeaf"
+        android:onClick="showStock(Stock leaf)"
         android:clickable="true"  />
 
     <TextView
@@ -364,7 +364,7 @@
         android:layout_toLeftOf="@+id/leafChange"
         android:gravity="center"
         android:text="@string/leafPrice"
-        android:onClick="showLeaf"
+        android:onClick="showStock(Stock leaf)"
         android:clickable="true"  />
 
     <TextView
@@ -377,7 +377,7 @@
         android:gravity="center"
         android:text="@string/leafChange"
         android:textColor="@color/orange"
-        android:onClick="showLeaf"
+        android:onClick="showStock(Stock leaf)"
         android:clickable="true" />
 
     <TextView
@@ -390,7 +390,7 @@
         android:gravity="center"
         android:paddingRight="10dp"
         android:text="@string/leafValue"
-        android:onClick="showLeaf"
+        android:onClick="showStock(Stock leaf)"
         android:clickable="true"  />
 
     <View
@@ -423,7 +423,7 @@
         android:layout_toLeftOf="@+id/netfPrice"
         android:gravity="center"
         android:text="@string/netfQuantity"
-        android:onClick="shownetf"
+        android:onClick="showStock(Stock netf)"
         android:clickable="true" />
 
     <TextView
@@ -435,7 +435,7 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="@string/netfName"
-        android:onClick="shownetf"
+        android:onClick="showStock(Stock netf)"
         android:clickable="true" />
 
     <TextView
@@ -447,7 +447,7 @@
         android:layout_toLeftOf="@+id/netfChange"
         android:gravity="center"
         android:text="@string/netfPrice"
-        android:onClick="shownetf"
+        android:onClick="showStock(Stock netf)"
         android:clickable="true" />
 
     <TextView
@@ -460,7 +460,7 @@
         android:gravity="center"
         android:text="@string/netfChange"
         android:textColor="@color/orange"
-        android:onClick="shownetf"
+        android:onClick="showStock(Stock netf)"
         android:clickable="true" />
 
     <TextView
@@ -473,7 +473,8 @@
         android:gravity="center"
         android:paddingRight="10dp"
         android:text="@string/netfValue"
-        android:onClick="shownetf"
+        android:onClick="showStock"
+        android:tag="netf"
         android:clickable="true" />
 
     <View
