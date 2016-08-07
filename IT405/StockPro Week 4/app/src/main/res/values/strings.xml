@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Stock Pro</string>
+    <string name="Button1">Fetch Quote</string>
+    <string name="Button2">Manage Portfolio</string>
+    <string name="Button3">Settings</string>
+    <string name="addToPortfolio">Add to Portfolio</string>
+    <string name="symbol">SYMBOL: AMZN</string>
+    <string name="name">Amazon Corporation</string>
+    <string name="price">Current Price: 464.32</string>
+    <string name="change">Change: +3.29</string>
+    <string name="high">52 Week High: 672.32</string>
+    <string name="low">52 Week Low: 372.23</string>
+    <string name="volume">Volume: 3200057</string>
+    <string name="refreshed">Refereshed at: 07/12/2016 3:45 PM EST</string>
+    <string name="search_hint">Symbol</string>
+    <string name="refresh">Refresh</string>
+    <string name="delete">Del</string>
+
+    <string name="msftValue">Value: 0.00</string>
+    <string name="msftPrice">62.67</string>
+    <string name="msftName">Microsoft Corporation</string>
+    <string name="msftQuantity">0 of MSFT</string>
+    <string name="msftChange">(-0.29)</string>
+    <string name="msftdesc">
+        Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington, that develops, manufactures, licenses, supports and sells computer software, consumer electronics and personal computers and services. Its best known software products are the Microsoft Windows line of operating systems, Microsoft Office office suite, and Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox game consoles and the Microsoft Surface tablet lineup. It is the world\'s largest software maker by revenue, and one of the world\'s most valuable companies.
+     </string>
+
+    <string name="amznValue">Value: 0.00</string>
+    <string name="amznChange">(+3.29)</string>
+    <string name="amznPrice">464.32</string>
+    <string name="amznName">Amazon Corporation</string>
+    <string name="amznQuantity">0 of AMZN</string>
+    <string name="amzndesc">Amazon.com, Inc., often referred to as simply Amazon, is an American electronic commerce and cloud computing company with headquarters in Seattle, Washington. It is the largest Internet-based retailer in the United States and world by total sales and market capitalization  Amazon.com started as an online bookstore, later diversifying to sell DVDs, Blu-rays, CDs, video downloads/streaming, MP3 downloads/streaming, audiobook downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry. The company also produces consumer electronics—notably, Amazon Kindle e-readers, Fire tablets, and Fire TV —and is the world\'s largest provider of cloud infrastructure services (IaaS). Amazon also sells certain low-end products like USB cables under its in-house brand AmazonBasics.
+    </string>
+
+    <string name="nintValue">Value: 0.00</string>
+    <string name="nintChange">(+5000)</string>
+    <string name="nintPrice">23220.00</string>
+    <string name="nintName">Nintendo</string>
+    <string name="nintQuantity">0 of JPY</string>
+    <string name ="nintdesc">
+        Nintendo Co., Ltd. is a Japanese multinational consumer electronics and software company headquartered in Kyoto, Japan. Nintendo is the world\'s largest video game company by revenue. Founded on September 23, 1889, by Fusajiro Yamauchi, it originally produced handmade hanafuda playing cards. By 1963, the company had tried several small niche businesses, such as cab services and love hotels. The word Nintendo can be roughly translated from Japanese to English as "leave luck to heaven".
+
+    </string>
+
+    <string name="leafValue">Value: 0.00</string>
+    <string name="leafChange">(-.46)</string>
+    <string name="leafPrice">48.68</string>
+    <string name="leafName">Springleaf</string>
+    <string name="leafQuantity">0 of LEAF</string>
+    <string name="leafdesc">
+        Springleaf Financial Services, previously known as American General Finance, is a company whose primary business is consumer lending, credit insurance, and other credit related products. Its corporate headquarters are in Evansville, Indiana. Following an announced acquisition of OneMain Financial, the combined company will have $13.96 billion in core consumer net finance receivables and nearly 2,000 branches across 43 states. Springleaf is traded on the NYSE under the ticker symbol "LEAF"; AIG and Fortress Investment Group remain majority owners of the company.
+    </string>
+
+    <string name="netfName">Netflix</string>
+    <string name="netfValue">0.00</string>
+    <string name="netfQuantity">0 of NFLX</string>
+    <string name="netfPrice">85.89</string>
+    <string name="netfChange">(-.10)</string>
+    <string name="netfdesc">
+            Netflix Inc. is an American multinational entertainment company founded on August 29, 1997 in Scotts Valley, California by Reed Hastings and Marc Randolph. It specializes and provides streaming media and video on demand both online and physically, and recently a film and television producer, as well as online distributor. It is currently headquartered in Los Gatos.
+            \n\nIn 1998, about a year after Netflix\'s founding, the company grew by starting in the DVD by mail business. In 2007, Netflix expanded their business with the introduction of streaming media, as well as retaining the DVD and Blu-Ray rental service, with streaming available to Canada in 2010 and as of 2016, now serves over 190 countries. In 2013, Netflix introduced itself into the film and television industry, with its first series being House of Cards, which debuted in the same year, greatly expanding into film in 2015, and now offers its "Netflix Original" content abroad its online library of films and television.
+
+
+    </string>
+
+    <string name="add">Add</string>
+    <string name="qty">QTY</string>
+    <string name="searchsymbol">Symbol</string>
+    <string name="portofolioTitle">My Portfolio</string>
+    <string name="save">Save</string>
+    <string name="backgroundSyncSettings">Background Sync</string>
+    <string name="settingsTitle">Settings</string>
+    <string name="backgroundSyncSettingsDesc">Refresh portfolio every Hour</string>
+    <string name="search">Search</string>
+    <string name="appTitle">Stock Pro</string>
+    <string name="list">List</string>
+    <string name="more">More</string>
+    <string name="total_value">Total Value: XXXXXX.XX</string>
+    <string name="less">Less</string>
+    <string name="displayMoreButtonSettings">Display More Button</string>
+    <string name="displayMoreButtonSettingsDesc">Show More Button to get details of the company</string>
+
+</resources>
