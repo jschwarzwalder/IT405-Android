@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+        android:id="@+id/Quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_toLeftOf="@+id/Price"
+        android:gravity="center"
+        android:text="@string/amznQuantity"
+        android:onClick="showStock(Stock amzn)"
+        android:clickable="true"/>
+
+
+    <TextView
+        android:id="@+id/Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/Change"
+        android:gravity="center"
+        android:text="@string/amznPrice"
+        android:onClick="showStock(Stock amzn)"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/Change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@id/Delete"
+        android:gravity="center"
+        android:text="@string/amznChange"
+        android:textColor="@color/green"
+        android:onClick="showStock(Stock amzn)"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/Delete"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/Value"
+        android:gravity="center"
+        android:text="@string/amznName"
+        android:onClick="showStock(Stock amzn)"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_alignRight="@id/Change"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/amznValue"
+        android:onClick="showStock(Stock amzn)"
+        android:clickable="true"/>
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"
+        android:background="@color/teal"
+        android:onClick="onAmazonDelete"
+        android:text="@string/delete"
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <View
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"/>
+
+</RelativeLayout>
