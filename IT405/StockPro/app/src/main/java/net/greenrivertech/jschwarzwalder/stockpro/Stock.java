@@ -74,4 +74,6 @@ public class Stock {
     public int getDescID() {
         return descID;
     }
+
+    public String toString(){ return name; }
 }

@@ -12,9 +12,7 @@
         android:layout_toLeftOf="@+id/Price"
         android:clickable="true"
         android:gravity="center"
-        android:onClick="showStock"
-        android:tag=""
-        android:text="" />
+        android:onClick="showStock"/>
 
 
     <TextView
@@ -27,8 +25,7 @@
         android:clickable="true"
         android:gravity="center"
         android:onClick="showStock"
-        android:tag=""
-        android:text="" />
+        />
 
     <TextView
         android:id="@+id/Change"
@@ -41,8 +38,6 @@
         android:clickable="true"
         android:gravity="center"
         android:onClick="showStock"
-        android:tag=""
-        android:text=""
         android:textColor="@color/green" />
 
     <TextView
@@ -54,9 +49,7 @@
         android:layout_toLeftOf="@+id/Value"
         android:clickable="true"
         android:gravity="center"
-        android:onClick="showStock"
-        android:tag=""
-        android:text="" />
+        android:onClick="showStock"/>
 
     <TextView
         android:id="@+id/Value"
@@ -68,24 +61,21 @@
         android:clickable="true"
         android:gravity="center"
         android:onClick="showStock"
-        android:paddingRight="10dp"
-        android:tag=""
-        android:text="" />
+        android:paddingRight="10dp"/>
 
     <Button
         android:id="@+id/Delete"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:background="@color/teal"
         android:onClick="onDelete"
-        android:tag=""
-        android:text=""
+        android:text="Del"
         android:textColor="@color/white" />
 
     <View

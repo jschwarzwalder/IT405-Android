@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         stocks.put("LEAF", leaf);
         stocks.put("NFLX", netf);
 
+        stocksDisplay.add(leaf);
+
         final ListView stocksList = (ListView) findViewById(R.id.stockListDisplay);
 
         stockAdapter = new BaseAdapter() {
@@ -109,27 +113,50 @@ public class MainActivity extends AppCompatActivity {
                 if (convertView == null){
                     convertView = View.inflate(MainActivity.this, R.layout.stock_list_item, null);
                 }
-                Stock thisStock = (Stock) getItem(position);
+                Stock thisStock = (Stock) stocksDisplay.get(position);
 
-                ((TextView) findViewById(R.id.Price)).setText(String.format("%01.2f", thisStock.getPrice() / 100.0f));
-                ((TextView) findViewById(R.id.Quantity)).setText(thisStock.getQuantity() + " " + thisStock.getSymbol());
+                ((TextView) convertView.findViewById(R.id.Price)).setText(String.format("%01.2f", thisStock.getPrice() / 100.0f));
+                ((TextView) convertView.findViewById(R.id.Price)).setTag(thisStock.getSymbol());
 
-                TextView changeView = (TextView) findViewById(R.id.Change);
+
+                ((TextView) convertView.findViewById(R.id.Quantity)).setText(thisStock.getQuantity() + " " + thisStock.getSymbol());
+                ((TextView) convertView.findViewById(R.id.Quantity)).setTag(thisStock.getSymbol());
+
+                TextView changeView = (TextView) convertView.findViewById(R.id.Change);
                 changeView.setText(String.format("(%01.2f)", thisStock.getChange() / 100.0f));
                 if (thisStock.getChange() < 0){
                     changeView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.orange));
                 } else {
                     changeView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
                 }
+                changeView.setTag(thisStock.getSymbol());
+                changeView.setVisibility(View.VISIBLE);
 
-                ((TextView) findViewById(R.id.Name)).setText(thisStock.getName());
-                ((TextView) findViewById(R.id.Value)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+                ((TextView) convertView.findViewById(R.id.Name)).setText(thisStock.getName());
+                ((TextView) convertView.findViewById(R.id.Name)).setTag(thisStock.getSymbol());
+
+                ((TextView) convertView.findViewById(R.id.Value)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+                ((TextView) convertView.findViewById(R.id.Value)).setTag(thisStock.getSymbol());
+
+                convertView.findViewById(R.id.Delete).setTag(thisStock.getSymbol());
+                convertView.findViewById(R.id.Delete).setVisibility(View.VISIBLE);
+
+                Log.d("StockPro", thisStock.getName());
 
 
-
-                return null;
+                return convertView;
             }
+
+
         };
+
+        stocksList.setAdapter(stockAdapter);
+        stocksList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
+                showStock(view);
+            }
+        });
 
 
     }
@@ -162,25 +189,15 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (thisStock != null) {
-            thisStock.setQuantity(thisStock.getQuantity() + addQty);
-            switch (symbolSearch) {
-                case "AMZN":
-                    findViewById(R.id.Price).setVisibility(View.VISIBLE);
-                    ((TextView) findViewById(R.id.Quantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                    findViewById(R.id.Quantity).setVisibility(View.VISIBLE);
-                    findViewById(R.id.Change).setVisibility(View.VISIBLE);
-                    findViewById(R.id.Name).setVisibility(View.VISIBLE);
-                    ((TextView) findViewById(R.id.Value)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
-                    findViewById(R.id.Value).setVisibility(View.VISIBLE);
-                    findViewById(R.id.Delete).setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "Amazon Stock Added", Toast.LENGTH_SHORT).show();
-
-                    break;
-
-                default:
-                    Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
-                    break;
+            if (thisStock.getQuantity() == 0)
+            {
+                stocksDisplay.add(thisStock);
             }
+            thisStock.setQuantity(thisStock.getQuantity() + addQty);
+            stockAdapter.notifyDataSetChanged();
+            Toast.makeText(this, "Added " + addQty + " " + thisStock.getName(), Toast.LENGTH_SHORT).show();
+            Log.d("STOCK PRO", stocksDisplay.toString());
+
         } else {
 
             Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
@@ -189,16 +206,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onnDelete(View view) {
+    public void onDelete(View view) {
 
-        //find in array list
+        //find stock
         String symbolSearch = view.getTag().toString();
         Stock thisStock = stocks.get(symbolSearch);
 
         //remove from array list
         Log.d(TAG, "clicked Delete on" + thisStock.getName());
+        stocksDisplay.remove(thisStock);
+        thisStock.setQuantity(0);
 
        //tell adapter to update
+        stockAdapter.notifyDataSetChanged();
     }
 
 
