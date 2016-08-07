@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String TAG = MainActivity.class.getSimpleName();
 
     HashMap<String, Stock> stocks = new HashMap<String, Stock>();
+    ArrayList<Stock> stocksDisplay = new ArrayList<Stock>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         stocks.put("LEAF", leaf);
         stocks.put("NFLX", netf);
 
+
+
     }
 
     protected void onResume(Bundle savedInstanceState) {
@@ -111,68 +115,18 @@ public class MainActivity extends AppCompatActivity {
             thisStock.setQuantity(thisStock.getQuantity() + addQty);
             switch (symbolSearch) {
                 case "AMZN":
-                    findViewById(R.id.amznPrice).setVisibility(View.VISIBLE);
-                    ((TextView) findViewById(R.id.amznQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                    findViewById(R.id.amznQuantity).setVisibility(View.VISIBLE);
-                    findViewById(R.id.amznChange).setVisibility(View.VISIBLE);
-                    findViewById(R.id.amznName).setVisibility(View.VISIBLE);
-                    ((TextView) findViewById(R.id.amznValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
-                    findViewById(R.id.amznValue).setVisibility(View.VISIBLE);
-                    findViewById(R.id.amznDelete).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Price).setVisibility(View.VISIBLE);
+                    ((TextView) findViewById(R.id.Quantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
+                    findViewById(R.id.Quantity).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Change).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Name).setVisibility(View.VISIBLE);
+                    ((TextView) findViewById(R.id.Value)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+                    findViewById(R.id.Value).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Delete).setVisibility(View.VISIBLE);
                     Toast.makeText(this, "Amazon Stock Added", Toast.LENGTH_SHORT).show();
 
                     break;
-                case "MSFT":
-                    ((TextView) findViewById(R.id.msftQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                    ((TextView) findViewById(R.id.msftValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
 
-                    findViewById(R.id.msftPrice).setVisibility(View.VISIBLE);
-                    findViewById(R.id.msftQuantity).setVisibility(View.VISIBLE);
-                    findViewById(R.id.msftChange).setVisibility(View.VISIBLE);
-                    findViewById(R.id.msftName).setVisibility(View.VISIBLE);
-                    findViewById(R.id.msftValue).setVisibility(View.VISIBLE);
-                    findViewById(R.id.msftDelete).setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "Microsoft Stock Added", Toast.LENGTH_SHORT).show();
-
-                    break;
-                case "JPY":
-                    ((TextView) findViewById(R.id.nintQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                    ((TextView) findViewById(R.id.nintValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
-
-                    findViewById(R.id.nintPrice).setVisibility(View.VISIBLE);
-                    findViewById(R.id.nintQuantity).setVisibility(View.VISIBLE);
-                    findViewById(R.id.nintChange).setVisibility(View.VISIBLE);
-                    findViewById(R.id.nintName).setVisibility(View.VISIBLE);
-                    findViewById(R.id.nintValue).setVisibility(View.VISIBLE);
-                    findViewById(R.id.nintDelete).setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "Nintendo Stock Added", Toast.LENGTH_SHORT).show();
-
-                    break;
-                case "LEAF":
-                    ((TextView) findViewById(R.id.leafQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                    ((TextView) findViewById(R.id.leafValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
-
-                    findViewById(R.id.leafPrice).setVisibility(View.VISIBLE);
-                    findViewById(R.id.leafQuantity).setVisibility(View.VISIBLE);
-                    findViewById(R.id.leafChange).setVisibility(View.VISIBLE);
-                    findViewById(R.id.leafName).setVisibility(View.VISIBLE);
-                    findViewById(R.id.leafValue).setVisibility(View.VISIBLE);
-                    findViewById(R.id.leafDelete).setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "Springleaf Stock Added", Toast.LENGTH_SHORT).show();
-
-                    break;
-                case "NFLX":
-                    ((TextView) findViewById(R.id.netfQuantity)).setText(thisStock.getQuantity() + " " + symbolSearch);
-                    ((TextView) findViewById(R.id.netfValue)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
-
-                    findViewById(R.id.netfPrice).setVisibility(View.VISIBLE);
-                    findViewById(R.id.netfQuantity).setVisibility(View.VISIBLE);
-                    findViewById(R.id.netfChange).setVisibility(View.VISIBLE);
-                    findViewById(R.id.netfName).setVisibility(View.VISIBLE);
-                    findViewById(R.id.netfValue).setVisibility(View.VISIBLE);
-                    findViewById(R.id.netfDelete).setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "Netflix Stock Added", Toast.LENGTH_SHORT).show();
-                    break;
                 default:
                     Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
                     break;

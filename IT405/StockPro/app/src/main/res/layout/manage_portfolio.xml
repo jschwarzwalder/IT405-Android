@@ -70,7 +70,14 @@
         android:textColor="@color/white"
         android:onClick="onAdd"/>
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/stockDisplay"
+        android:layout_below="@id/addButton"
+        android:layout_above="@id/totalValue">
 
+    </ListView>
 
     <Button
         android:id="@+id/refresh"
@@ -94,6 +101,7 @@
         android:layout_above="@id/refresh"
         android:layout_centerHorizontal="true"
         android:textSize="12dp"
+        android:id="@+id/totalValue"
         android:layout_marginBottom="5dp"/>
 
 
