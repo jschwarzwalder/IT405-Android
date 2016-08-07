@@ -73,7 +73,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/stockDisplay"
+        android:id="@+id/stockListDisplay"
         android:layout_below="@id/addButton"
         android:layout_above="@id/totalValue">
 

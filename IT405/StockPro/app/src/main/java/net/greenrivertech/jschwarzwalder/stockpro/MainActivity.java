@@ -1,10 +1,15 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     HashMap<String, Stock> stocks = new HashMap<String, Stock>();
     ArrayList<Stock> stocksDisplay = new ArrayList<Stock>();
+    BaseAdapter stockAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +86,50 @@ public class MainActivity extends AppCompatActivity {
         stocks.put("LEAF", leaf);
         stocks.put("NFLX", netf);
 
+        final ListView stocksList = (ListView) findViewById(R.id.stockListDisplay);
+
+        stockAdapter = new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return stocksDisplay.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return stocksDisplay.get(position);
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                if (convertView == null){
+                    convertView = View.inflate(MainActivity.this, R.layout.stock_list_item, null);
+                }
+                Stock thisStock = (Stock) getItem(position);
+
+                ((TextView) findViewById(R.id.Price)).setText(String.format("%01.2f", thisStock.getPrice() / 100.0f));
+                ((TextView) findViewById(R.id.Quantity)).setText(thisStock.getQuantity() + " " + thisStock.getSymbol());
+
+                TextView changeView = (TextView) findViewById(R.id.Change);
+                changeView.setText(String.format("(%01.2f)", thisStock.getChange() / 100.0f));
+                if (thisStock.getChange() < 0){
+                    changeView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.orange));
+                } else {
+                    changeView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
+                }
+
+                ((TextView) findViewById(R.id.Name)).setText(thisStock.getName());
+                ((TextView) findViewById(R.id.Value)).setText(String.format("Value: %01.2f", thisStock.getValue() / 100.0f));
+
+
+
+                return null;
+            }
+        };
 
 
     }
