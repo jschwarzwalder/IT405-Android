@@ -185,70 +185,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onAmazonDelete(View v) {
-        Log.d(TAG, "clicked Amazon Delete");
+    public void onnDelete(View view) {
 
-        findViewById(R.id.amznPrice).setVisibility(View.GONE);
-        findViewById(R.id.amznQuantity).setVisibility(View.GONE);
-        findViewById(R.id.amznChange).setVisibility(View.GONE);
-        findViewById(R.id.amznName).setVisibility(View.GONE);
-        findViewById(R.id.amznValue).setVisibility(View.GONE);
-        findViewById(R.id.amznDelete).setVisibility(View.GONE);
+        //find in array list
+        String symbolSearch = view.getTag().toString();
+        Stock thisStock = stocks.get(symbolSearch);
 
-        stocks.get("AMZN").setQuantity(0);
+        //remove from array list
+        Log.d(TAG, "clicked Delete on" + thisStock.getName());
+
+       //tell adapter to update
     }
 
-    public void onNintendoDelete(View v) {
-        Log.d(TAG, "clicked Nintendo Delete");
-
-        findViewById(R.id.nintPrice).setVisibility(View.GONE);
-        findViewById(R.id.nintQuantity).setVisibility(View.GONE);
-        findViewById(R.id.nintChange).setVisibility(View.GONE);
-        findViewById(R.id.nintName).setVisibility(View.GONE);
-        findViewById(R.id.nintValue).setVisibility(View.GONE);
-        findViewById(R.id.nintDelete).setVisibility(View.GONE);
-
-        stocks.get("JPY").setQuantity(0);
-    }
-
-    public void onSpringLeafDelete(View v) {
-        Log.d(TAG, "clicked Leaf Delete");
-
-        findViewById(R.id.leafPrice).setVisibility(View.GONE);
-        findViewById(R.id.leafQuantity).setVisibility(View.GONE);
-        findViewById(R.id.leafChange).setVisibility(View.GONE);
-        findViewById(R.id.leafName).setVisibility(View.GONE);
-        findViewById(R.id.leafValue).setVisibility(View.GONE);
-        findViewById(R.id.leafDelete).setVisibility(View.GONE);
-
-        stocks.get("LEAF").setQuantity(0);
-    }
-
-    public void onNetflixDelete(View v) {
-        Log.d(TAG, "clicked Netflix Delete");
-
-        findViewById(R.id.netfPrice).setVisibility(View.GONE);
-        findViewById(R.id.netfQuantity).setVisibility(View.GONE);
-        findViewById(R.id.netfChange).setVisibility(View.GONE);
-        findViewById(R.id.netfName).setVisibility(View.GONE);
-        findViewById(R.id.netfValue).setVisibility(View.GONE);
-        findViewById(R.id.netfDelete).setVisibility(View.GONE);
-
-        stocks.get("NFLX").setQuantity(0);
-    }
-
-    public void onMicrosoftDelete(View v) {
-        Log.d(TAG, "clicked Microsoft Delete");
-
-        findViewById(R.id.msftPrice).setVisibility(View.GONE);
-        findViewById(R.id.msftQuantity).setVisibility(View.GONE);
-        findViewById(R.id.msftChange).setVisibility(View.GONE);
-        findViewById(R.id.msftName).setVisibility(View.GONE);
-        findViewById(R.id.msftValue).setVisibility(View.GONE);
-        findViewById(R.id.msftDelete).setVisibility(View.GONE);
-
-        stocks.get("MSFT").setQuantity(0);
-    }
 
     public void Refresh(View v) {
 //        findViewById(R.id.amznPrice).setVisibility(View.VISIBLE);
