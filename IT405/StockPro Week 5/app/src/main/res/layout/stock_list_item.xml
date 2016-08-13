@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_toLeftOf="@+id/Price"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showStock"/>
+
+
+    <TextView
+        android:id="@+id/Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/Change"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showStock"
+        />
+
+    <TextView
+        android:id="@+id/Change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@id/Delete"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showStock"
+        android:textColor="@color/green" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/Delete"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/Value"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showStock"/>
+
+    <TextView
+        android:id="@+id/Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/Delete"
+        android:layout_alignRight="@id/Change"
+        android:layout_marginLeft="25dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showStock"
+        android:paddingRight="10dp"/>
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@color/teal"
+        android:onClick="onDelete"
+        android:text="Del"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>
