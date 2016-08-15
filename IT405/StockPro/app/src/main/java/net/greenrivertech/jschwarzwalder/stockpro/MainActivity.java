@@ -1,6 +1,7 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean displayMore = true;
+
 
     final static int MY_ID = 434;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, Stock> stocks = new HashMap<String, Stock>();
     ArrayList<Stock> stocksDisplay = new ArrayList<Stock>();
     BaseAdapter stockAdapter;
+    int stockTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.manage_portfolio);
 //        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
+        stockTotal = 0;
+
 
         Stock amz = new Stock("AMZN",
                 getString(R.string.amznName),
@@ -87,8 +91,7 @@ public class MainActivity extends AppCompatActivity {
         stocks.put("JPY", jpy);
         stocks.put("LEAF", leaf);
         stocks.put("NFLX", netf);
-
-        stocksDisplay.add(leaf);
+        
 
         final ListView stocksList = (ListView) findViewById(R.id.stockListDisplay);
 
@@ -158,8 +161,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-    }
+        //update Total Value and refresh the display
+        updateTotal();
+         }
 
     protected void onResume(Bundle savedInstanceState) {
 
@@ -203,7 +207,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
         }
 
-
+        //update Total Value and refresh the display
+        updateTotal();
     }
 
     public void onDelete(View view) {
@@ -219,6 +224,9 @@ public class MainActivity extends AppCompatActivity {
 
        //tell adapter to update
         stockAdapter.notifyDataSetChanged();
+
+        //update Total Value and refresh the display
+        updateTotal();
     }
 
 
@@ -269,34 +277,29 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("low", thisStock.getLow());
         b.putInt("volume", thisStock.getVolume());
         b.putInt("descID", thisStock.getDescID());
-        b.putBoolean("more", displayMore);
+
         i.putExtras(b);
         startActivity(i);
     }
 
     public void showSettings(View view) {
         Intent i = new Intent(this, Settings.class);
-
-        i.putExtra("displayMore", displayMore);
-        startActivityForResult(i, MY_ID);
+        startActivity(i);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent i) {
+    private void updateTotal(){
+        //clear previous value
+        stockTotal = 0;
 
-        Log.d(TAG, "onActivityResult()");
-
-
-        if ((requestCode == MY_ID) && (resultCode == RESULT_OK)) {
-
-            // check for data that may have returned from the second activity
-
-            if (i.hasExtra("displayMore")) {
-                displayMore = i.getExtras().getBoolean("displayMore");
-            }
+        //add value for each stock in the Display Array
+        for (Stock thisStock : stocksDisplay  ){
+            stockTotal += thisStock.getValue();
 
         }
 
-        super.onActivityResult(requestCode, resultCode, i);
+        //Change view to display newly calculated value
+        ((TextView) findViewById(R.id.totalValue)).setText(String.format("Total Value: %01.2f", stockTotal / 100.0f));
+
     }
+
 }

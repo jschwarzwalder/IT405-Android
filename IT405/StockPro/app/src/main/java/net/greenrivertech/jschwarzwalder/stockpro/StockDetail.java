@@ -1,6 +1,8 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,10 +22,13 @@ public class StockDetail extends AppCompatActivity {
     private int descID;
     private boolean descView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stock_quotes);
+        SharedPreferences settings =  PreferenceManager.getDefaultSharedPreferences(this);
+        displayMore = settings.getBoolean(Settings.PREF_DISPLAY, true);
     }
 
 
@@ -42,7 +47,6 @@ public class StockDetail extends AppCompatActivity {
         high = b.getInt("high");
         low = b.getInt("low");
         volume = b.getInt("volume");
-        displayMore = b.getBoolean("more");
         descID = b.getInt("descID");
 
 
@@ -77,6 +81,8 @@ public class StockDetail extends AppCompatActivity {
         if (displayMore == false)
         {
             findViewById(R.id.moreDetail).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.moreDetail).setVisibility(View.VISIBLE);
         }
 
         TextView newDesc = (TextView)findViewById(R.id.desc);
@@ -138,7 +144,6 @@ public class StockDetail extends AppCompatActivity {
         b.putInt("high", high);
         b.putInt("low", low);
         b.putInt("volume", volume);
-        b.putBoolean("more", displayMore);
         b.putInt("descID", descID);
         b.putBoolean("descView", descView);
     }
