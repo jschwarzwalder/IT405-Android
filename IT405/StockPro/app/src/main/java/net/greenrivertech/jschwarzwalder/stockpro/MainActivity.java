@@ -17,11 +17,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -46,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         stockTotal = 0;
+        try {
+            FileInputStream stockFile = openFileInput("assets/stocks.csv");
+            InputStreamReader readStocks = new InputStreamReader(stockFile);
+            readStocks.read(char[]);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(this,"File not Found",Toast.LENGTH_SHORT).show();
+        }
 
 
         Stock amz = new Stock("AMZN",
