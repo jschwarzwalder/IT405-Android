@@ -214,11 +214,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid Stock Option", Toast.LENGTH_SHORT).show();
         }
 
+        //saves current qty in internal Storage
+        saveDetails();
+
         //update Total Value and refresh the display
         updateTotal();
 
-        //saves current qty in internal Storage
-        saveDetails();
+
     }
 
     public void onDelete(View view) {
@@ -328,6 +330,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,symbol + " saved",Toast.LENGTH_SHORT).show();
 
             }
+            String name = getFilesDir().getAbsolutePath();
+            Toast.makeText(this,"File stored as " + name ,Toast.LENGTH_LONG).show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
