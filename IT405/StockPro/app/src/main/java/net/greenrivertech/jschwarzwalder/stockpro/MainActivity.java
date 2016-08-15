@@ -317,9 +317,16 @@ public class MainActivity extends AppCompatActivity {
     private void saveDetails () {
         try {
 
-            FileOutputStream savedFile = openFileOutput("qtyDetails", Context.MODE_PRIVATE);
+            FileOutputStream savedFile = openFileOutput("qtyDetails.txt", Context.MODE_PRIVATE);
            OutputStreamWriter dataStore = new OutputStreamWriter(savedFile);
-             dataStore.write("");
+            for (Stock thisStock : stocksDisplay  ){
+                String symbol = thisStock.getSymbol();
+                int qty = thisStock.getQuantity();
+                String save = "" + symbol + ", " + qty + "\n";
+                dataStore.write(save);
+
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
