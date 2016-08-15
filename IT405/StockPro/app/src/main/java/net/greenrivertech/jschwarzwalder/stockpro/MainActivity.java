@@ -1,5 +1,6 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.content.ContextCompat;
@@ -15,6 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -209,6 +215,9 @@ public class MainActivity extends AppCompatActivity {
 
         //update Total Value and refresh the display
         updateTotal();
+
+        //saves current qty in internal Storage
+        saveDetails();
     }
 
     public void onDelete(View view) {
@@ -227,6 +236,9 @@ public class MainActivity extends AppCompatActivity {
 
         //update Total Value and refresh the display
         updateTotal();
+
+        //saves current qty in internal Storage
+        saveDetails();
     }
 
 
@@ -300,6 +312,19 @@ public class MainActivity extends AppCompatActivity {
         //Change view to display newly calculated value
         ((TextView) findViewById(R.id.totalValue)).setText(String.format("Total Value: %01.2f", stockTotal / 100.0f));
 
+    }
+
+    private void saveDetails () {
+        try {
+
+            FileOutputStream savedFile = openFileOutput("qtyDetails", Context.MODE_PRIVATE);
+           OutputStreamWriter dataStore = new OutputStreamWriter(savedFile);
+             dataStore.write("");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

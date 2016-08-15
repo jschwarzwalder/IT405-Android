@@ -1,9 +1,11 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
+
+
 /**
  * Created by Eiseldora on 7/31/2016.
  */
-public class Stock {
+public class Stock  {
     private String symbol;
     private String name;
     private int quantity;
