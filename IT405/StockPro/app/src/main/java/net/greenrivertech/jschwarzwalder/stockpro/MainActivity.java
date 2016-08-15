@@ -1,5 +1,6 @@
 package net.greenrivertech.jschwarzwalder.stockpro;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -324,13 +325,17 @@ public class MainActivity extends AppCompatActivity {
                 int qty = thisStock.getQuantity();
                 String save = "" + symbol + ", " + qty + "\n";
                 dataStore.write(save);
+                Toast.makeText(this,symbol + " saved",Toast.LENGTH_SHORT).show();
 
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            Toast.makeText(this,"File not Found",Toast.LENGTH_SHORT).show();
+
         } catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(this,"IOExecption",Toast.LENGTH_SHORT).show();
         }
     }
 
