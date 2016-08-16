@@ -15,9 +15,12 @@ public class Stock  {
     private int high;
     private int low;
     private int volume;
-    private int descID;
 
-    public Stock(String symbol, String name, int price, int change, int high, int low, int volume, int descID) {
+
+
+    private String desc;
+
+    public Stock(String symbol, String name, int price, int change, int high, int low, int volume, String desc) {
         this.symbol = symbol;
         this.name = name;
         this.price = price;
@@ -25,7 +28,7 @@ public class Stock  {
         this.high = high;
         this.low = low;
         this.volume = volume;
-        this.descID = descID;
+        this.desc = desc;
 
         quantity = 0;
 
@@ -73,8 +76,10 @@ public class Stock  {
         return volume;
     }
 
-    public int getDescID() {
-        return descID;
+
+
+    public String getDesc() {
+        return desc;
     }
 
     public String toString(){ return name; }

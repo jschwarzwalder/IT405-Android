@@ -19,7 +19,7 @@ public class StockDetail extends AppCompatActivity {
     private int low;
     private int volume;
     private boolean displayMore;
-    private int descID;
+    private String desc;
     private boolean descView;
 
 
@@ -47,7 +47,7 @@ public class StockDetail extends AppCompatActivity {
         high = b.getInt("high");
         low = b.getInt("low");
         volume = b.getInt("volume");
-        descID = b.getInt("descID");
+        desc = b.getString("desc");
 
 
         TextView newSymbol = (TextView)findViewById(R.id.symbol);
@@ -86,7 +86,7 @@ public class StockDetail extends AppCompatActivity {
         }
 
         TextView newDesc = (TextView)findViewById(R.id.desc);
-        newDesc.setText(getString(descID));
+        newDesc.setText(desc);
     }
 
     public void backtoList(View view){
@@ -144,7 +144,7 @@ public class StockDetail extends AppCompatActivity {
         b.putInt("high", high);
         b.putInt("low", low);
         b.putInt("volume", volume);
-        b.putInt("descID", descID);
+        b.putString("desc", desc);
         b.putBoolean("descView", descView);
     }
 
