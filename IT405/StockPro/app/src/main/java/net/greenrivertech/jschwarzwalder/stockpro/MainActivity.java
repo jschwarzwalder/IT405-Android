@@ -28,9 +28,9 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-
 
 
     final static int MY_ID = 434;
@@ -50,66 +50,60 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         stockTotal = 0;
         try {
+            //Read from stocks.csv file
             FileInputStream stockFile = openFileInput("assets/stocks.csv");
-            InputStreamReader readStocks = new InputStreamReader(stockFile);
-            readStocks.read(char[]);
+            Scanner readStocks = new Scanner(stockFile);
+            readStocks.nextLine(); //skip header
+            while (readStocks.hasNextLine()) {
+                String stockdata = readStocks.nextLine();
+                String[] data = stockdata.split(",");
+                String desc = "";
+                for (int i = 6; i < data.length-1; i++){
+                    desc += data[i].trim() + ", ";
+                }
+                desc += data[data.length].trim();
+
+                Stock tempStock = new Stock(
+                        data[0].trim(), //symbol,
+                        data[1].trim(), //name,
+                        Integer.parseInt(data[2]), //price
+                        Integer.parseInt(data[3]), //change,
+                        Integer.parseInt(data[4]), //high,
+                        Integer.parseInt(data[5]), //low,
+                        Integer.parseInt(data[6]), //volume,
+                        desc//desc
+                );
+
+                stocks.put(data[0].toUpperCase(), tempStock);
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(this,"File not Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "File not Found", Toast.LENGTH_SHORT).show();
         }
 
 
-        Stock amz = new Stock("AMZN",
-                getString(R.string.amznName),
-                46432, //Current Price in Pennies
-                329, //Change in Pennies
-                67232, // High
-                37223, // Low
-                3200057, // Volume
-                R.string.amzndesc);
+        //restore user inputted data from  qtyDetails.txt
+        try {
+            FileInputStream userInput = openFileInput("qtyDetails.txt");
+            Scanner prevAdd = new Scanner(userInput);
+            while (prevAdd.hasNextLine()) {
+                String storedStock = prevAdd.nextLine();
+                String[] data = storedStock.split(",");
 
-        Stock msft = new Stock("MSFT",
-                getString(R.string.msftName),
-                6267, //Current Price in Pennies
-                -29, //Change in Pennies
-                7256, // High
-                5432, // Low
-                24565612, // Volume
-                R.string.msftdesc);
+                Stock thisStock = stocks.get(data[0]);
+                if (Integer.parseInt(data[1]) > 0) {
+                    stocksDisplay.add(thisStock);
+                    thisStock.setQuantity(Integer.parseInt(data[1]));
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "File not Found", Toast.LENGTH_SHORT).show();
+        }
 
-        Stock jpy = new Stock("JPY",
-                getString(R.string.nintName),
-                2322000, //Current Price in Pennies
-                500000, //Change in Pennies
-                2822000, // High
-                1058634, // Low
-                123456789, // Volume
-                R.string.nintdesc);
-
-        Stock leaf = new Stock("LEAF",
-                getString(R.string.leafName),
-                4868, //Current Price in Pennies
-                -46, //Change in Pennies
-                6725, // High
-                3358, // Low
-                4556879, // Volume
-                R.string.leafdesc);
-
-        Stock netf = new Stock("NFLX",
-                getString(R.string.netfName),
-                8589, //Current Price in Pennies
-                -10, //Change in Pennies
-                14635, // High
-                8589, // Low
-                54682317, // Volume
-                R.string.netfdesc);
-
-        stocks.put("AMZN", amz);
-        stocks.put("MSFT", msft);
-        stocks.put("JPY", jpy);
-        stocks.put("LEAF", leaf);
-        stocks.put("NFLX", netf);
-        
+        //update Total Value and refresh the display
+        updateTotal();
 
         final ListView stocksList = (ListView) findViewById(R.id.stockListDisplay);
 
@@ -131,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                if (convertView == null){
+                if (convertView == null) {
                     convertView = View.inflate(MainActivity.this, R.layout.stock_list_item, null);
                 }
                 Stock thisStock = (Stock) stocksDisplay.get(position);
@@ -145,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView changeView = (TextView) convertView.findViewById(R.id.Change);
                 changeView.setText(String.format("(%01.2f)", thisStock.getChange() / 100.0f));
-                if (thisStock.getChange() < 0){
+                if (thisStock.getChange() < 0) {
                     changeView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.orange));
                 } else {
                     changeView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
@@ -172,16 +166,16 @@ public class MainActivity extends AppCompatActivity {
         };
 
         stocksList.setAdapter(stockAdapter);
-        stocksList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        stocksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
+            public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                 showStock(view);
             }
         });
 
         //update Total Value and refresh the display
         updateTotal();
-         }
+    }
 
     protected void onResume(Bundle savedInstanceState) {
 
@@ -211,8 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (thisStock != null) {
-            if (thisStock.getQuantity() == 0)
-            {
+            if (thisStock.getQuantity() == 0) {
                 stocksDisplay.add(thisStock);
             }
             thisStock.setQuantity(thisStock.getQuantity() + addQty);
@@ -245,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         stocksDisplay.remove(thisStock);
         thisStock.setQuantity(0);
 
-       //tell adapter to update
+        //tell adapter to update
         stockAdapter.notifyDataSetChanged();
 
         //update Total Value and refresh the display
@@ -302,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("high", thisStock.getHigh());
         b.putInt("low", thisStock.getLow());
         b.putInt("volume", thisStock.getVolume());
-        b.putInt("descID", thisStock.getDescID());
+        b.putString("desc", thisStock.getDesc());
 
         i.putExtras(b);
         startActivity(i);
@@ -313,12 +306,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void updateTotal(){
+    private void updateTotal() {
         //clear previous value
         stockTotal = 0;
 
         //add value for each stock in the Display Array
-        for (Stock thisStock : stocksDisplay  ){
+        for (Stock thisStock : stocksDisplay) {
             stockTotal += thisStock.getValue();
 
         }
@@ -328,29 +321,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void saveDetails () {
+    private void saveDetails() {
         try {
 
             FileOutputStream savedFile = openFileOutput("qtyDetails.txt", Context.MODE_PRIVATE);
-           OutputStreamWriter dataStore = new OutputStreamWriter(savedFile);
-            for (Stock thisStock : stocksDisplay  ){
+            OutputStreamWriter dataStore = new OutputStreamWriter(savedFile);
+            for (Stock thisStock : stocksDisplay) {
                 String symbol = thisStock.getSymbol();
                 int qty = thisStock.getQuantity();
                 String save = "" + symbol + ", " + qty + "\n";
                 dataStore.write(save);
-                Toast.makeText(this,symbol + " saved",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, symbol + " saved", Toast.LENGTH_SHORT).show();
 
             }
+            dataStore.close();
             String name = getFilesDir().getAbsolutePath();
-            Toast.makeText(this,"File stored as " + name ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "File stored as " + name, Toast.LENGTH_LONG).show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(this,"File not Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "File not Found", Toast.LENGTH_SHORT).show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(this,"IOExecption",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "IOExecption", Toast.LENGTH_SHORT).show();
         }
     }
 
