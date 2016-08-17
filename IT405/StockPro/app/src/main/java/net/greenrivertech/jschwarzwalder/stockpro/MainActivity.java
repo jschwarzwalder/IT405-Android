@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     final static int MY_ID = 434;
-    final static String ASSET_FILE = "stocks.csv";
+    final static String ASSET_FILE = "Stocks.csv";
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
@@ -63,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
                 String stockdata = readStocks.nextLine();
                 String[] data = stockdata.split(",");
                 String desc = "";
-                for (int i = 6; i < data.length-1; i++){
+                for (int i = 7; i < data.length-1; i++){
                     desc += data[i].trim() + ", ";
                 }
-                desc += data[data.length].trim();
+                desc += data[data.length - 1].trim();
 
                 Stock tempStock = new Stock(
                         data[0].trim(), //symbol,
                         data[1].trim(), //name,
-                        Integer.parseInt(data[2]), //price
-                        Integer.parseInt(data[3]), //change,
-                        Integer.parseInt(data[4]), //high,
-                        Integer.parseInt(data[5]), //low,
-                        Integer.parseInt(data[6]), //volume,
+                        Integer.parseInt(data[2].trim()), //price
+                        Integer.parseInt(data[3].trim()), //change,
+                        Integer.parseInt(data[4].trim()), //high,
+                        Integer.parseInt(data[5].trim()), //low,
+                        Integer.parseInt(data[6].trim()), //volume,
                         desc//desc
                 );
 
@@ -100,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 String[] data = storedStock.split(",");
 
                 Stock thisStock = stocks.get(data[0]);
-                if (Integer.parseInt(data[1]) > 0) {
+                if (Integer.parseInt(data[1].trim()) > 0) {
                     stocksDisplay.add(thisStock);
-                    thisStock.setQuantity(Integer.parseInt(data[1]));
+                    thisStock.setQuantity(Integer.parseInt(data[1].trim()));
                 }
             }
         } catch (FileNotFoundException e) {
