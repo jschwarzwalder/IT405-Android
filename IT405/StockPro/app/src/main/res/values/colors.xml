@@ -7,7 +7,7 @@
     <color name="green">#060</color>
     <color name="teal">#28b8b8</color>
     <color name="white">#fff</color>
-    <color name="colorBackground">#acf</color>
+    <color name="colorBackground">#e6e6ff</color>
     <color name="grey">#dad8d8</color>
     <color name="black">#000000</color>
 </resources>
