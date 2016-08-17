@@ -8,7 +8,13 @@
     <string name="refresh">Refresh</string>
     <string name="delete">Del</string>
 
-
+    <string name="symbol">SYMBOL: AMZN</string>
+    <string name="name">Amazon Corporation</string>
+    <string name="price">Current Price: 464.32</string>
+    <string name="change">Change: +3.29</string>
+    <string name="high">52 Week High: 672.32</string>
+    <string name="low">52 Week Low: 372.23</string>
+    <string name="volume">Volume: 3200057</string>
 
     <string name="add">Add</string>
     <string name="qty">QTY</string>

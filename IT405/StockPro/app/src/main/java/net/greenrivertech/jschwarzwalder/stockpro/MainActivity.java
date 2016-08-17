@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     final static int MY_ID = 434;
+    final static String ASSET_FILE = "stocks.csv";
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
@@ -51,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         stockTotal = 0;
         try {
             //Read from stocks.csv file
-            FileInputStream stockFile = openFileInput("assets/stocks.csv");
+            AssetManager assetManager = getAssets();
+
+            InputStream stockFile = assetManager.open(ASSET_FILE);
             Scanner readStocks = new Scanner(stockFile);
             readStocks.nextLine(); //skip header
             while (readStocks.hasNextLine()) {
@@ -80,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Toast.makeText(this, "File not Found", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Asset File not Found", Toast.LENGTH_SHORT).show();
         }
 
 
