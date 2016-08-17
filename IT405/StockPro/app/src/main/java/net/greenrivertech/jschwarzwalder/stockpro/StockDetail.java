@@ -29,14 +29,16 @@ public class StockDetail extends AppCompatActivity {
         setContentView(R.layout.stock_quotes);
         SharedPreferences settings =  PreferenceManager.getDefaultSharedPreferences(this);
         displayMore = settings.getBoolean(Settings.PREF_DISPLAY, true);
+        if (savedInstanceState == null) {
+            savedInstanceState = getIntent().getExtras();
+        }
+        setFields(savedInstanceState);
     }
 
 
     @Override
     protected void onResume(){
         super.onResume();
-        Bundle b = getIntent().getExtras();
-        setFields(b);
     }
 
     private void setFields(Bundle b) {
