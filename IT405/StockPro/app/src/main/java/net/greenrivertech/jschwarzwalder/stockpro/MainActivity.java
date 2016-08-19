@@ -339,12 +339,12 @@ public class MainActivity extends AppCompatActivity {
                 int qty = thisStock.getQuantity();
                 String save = "" + symbol + ", " + qty + "\n";
                 dataStore.write(save);
-                Toast.makeText(this, symbol + " saved", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, symbol + " saved", Toast.LENGTH_SHORT).show();
 
             }
             dataStore.close();
             String name = getFilesDir().getAbsolutePath();
-            Toast.makeText(this, "File stored as " + name, Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "File stored as " + name, Toast.LENGTH_LONG).show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
