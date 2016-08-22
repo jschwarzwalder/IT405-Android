@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/colorBackground"
     android:padding="10dp"
     android:scrollIndicators="right"
     android:foregroundGravity="fill_horizontal">
