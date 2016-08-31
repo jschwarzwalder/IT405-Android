@@ -40,10 +40,8 @@ public class StockXMLParser {
     }
 
 
-
-
     // Parses the contents
-    private HashMap<String, String> readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private Stock readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, Constants.KEY_ITEM);
 
         String symbol = null;
@@ -147,29 +145,23 @@ public class StockXMLParser {
     }
 
 
-    private HashMap<String, String> createStock(String symbol, String name,
-                                                String lastprice, String date, String change,
-                                                String opening, String highprice, String lowprice, String volume,
-                                                String prevclose, String percentchange,
-                                                String annrange, String earning, String pe) {
-        HashMap<String, String> hm = new HashMap<String, String>();
-        hm.put(Constants.KEY_PE, pe);
-        hm.put(Constants.KEY_EARNING, earning);
-        hm.put(Constants.KEY_ANNRANGE, annrange);
-        hm.put(Constants.KEY_PRCNTCHANGE, percentchange);
+    private Stock createStock(String symbol, String name,
+                              String lastprice, String date, String change,
+                              String opening, String highprice, String lowprice, String volume,
+                              String prevclose, String percentchange,
+                              String annrange, String earning, String pe) {
+        return new Stock(
+                symbol,
+                name,
+                (int) Math.round(Double.parseDouble(lastprice) * 100),
+                (int) Math.round(Double.parseDouble(change) * 100),
+                (int) Math.round(Double.parseDouble(highprice) * 100),
+                (int) Math.round(Double.parseDouble(lowprice) * 100),
+                Integer.parseInt(volume),
+                "Not available"
 
-        hm.put(Constants.KEY_PREVCLOSE, prevclose);
-        hm.put(Constants.KEY_VOLUME, volume);
-        hm.put(Constants.KEY_LOWPRICE, lowprice);
-        hm.put(Constants.KEY_HIGHPRICE, highprice);
-        hm.put(Constants.KEY_OPENPRICE, opening);
-        hm.put(Constants.KEY_CHANGE, change);
-        hm.put(Constants.KEY_DATE, date);
-        hm.put(Constants.KEY_CURPRICE, lastprice);
-        hm.put(Constants.KEY_NAME, name);
-        hm.put(Constants.KEY_SYMBOL, symbol);
+        );
 
-        return hm;
     }
 
 }
