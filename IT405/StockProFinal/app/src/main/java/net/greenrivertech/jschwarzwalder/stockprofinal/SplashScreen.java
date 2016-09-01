@@ -30,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
         //wait 10 seconds
 
         //advance to next screen
-		showMain();
+//		showMain();
     }
 
       public void showMain() {
