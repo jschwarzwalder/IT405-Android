@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Stock Pro</string>
+    <string name="app_name">Stock Pro Final</string>
     <string name="StockQuotes">Fetch Quote</string>
     <string name="Portfolio">Manage Portfolio</string>
     <string name="Settings">Settings</string>
@@ -35,4 +35,5 @@
     <string name="search">Search</string>
     <string name="appTitle">Stock Pro</string>
     <string name="Author">Jami Schwarzwalder</string>
+    <string name="cats_pajamas_desc">Logo</string>
 </resources>

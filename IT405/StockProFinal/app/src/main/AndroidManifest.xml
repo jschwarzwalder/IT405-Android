@@ -15,7 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainScreen"></activity>
+        <activity android:name=".MainScreen" />
+        <activity android:name=".StockQuotesActivity" />
+        <activity android:name=".ManagePortfolioActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
