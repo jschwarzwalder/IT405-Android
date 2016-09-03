@@ -11,9 +11,9 @@ import android.widget.CheckBox;
 
 public class SettingsActivity extends PreferenceActivity {
 
+    public static final String PREF_SYNC_INTERVAL = "sync_timer";
     private boolean displayMore;
     public static final String PREFS = "settings";
-    public static final String PREF_DISPLAY = "display_more";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

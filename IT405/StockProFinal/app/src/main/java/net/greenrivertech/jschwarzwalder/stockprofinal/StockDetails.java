@@ -47,7 +47,7 @@ public class StockDetails extends AppCompatActivity {
         setContentView(R.layout.activity_stock_details);
 
         Bundle bundle = getIntent().getExtras();
-        purchaseID = bundle.getInt("purcahseID");
+        purchaseID = bundle.getInt("purchaseID");
 
         stockService = new StockService();
 
@@ -153,8 +153,8 @@ public class StockDetails extends AppCompatActivity {
         TextView priceWhenPurchasedText = (TextView) findViewById(R.id.priceWhenPurchased);
         priceWhenPurchasedText.setText(String.format("Current Price: %d.%02d", priceWhenPurchased / 100, priceWhenPurchased % 100));
 
-        TextView quantityPurchasedTxte = (TextView) findViewById(R.id.quantityPurchased);
-        quantityPurchasedTxte.setText(quantityPurchased);
+        TextView quantityPurchasedText = (TextView) findViewById(R.id.quantityPurchased);
+        quantityPurchasedText.setText("Shares Owned: " + quantityPurchased);
 
 
         TextView newPrice = (TextView) findViewById(R.id.price);
@@ -262,6 +262,9 @@ public class StockDetails extends AppCompatActivity {
         SQLiteDatabase db = new StocksDatabaseHelper(this).getWritableDatabase();
         db.delete(StocksContract.PurchaseEntry.TABLE_NAME, StocksContract.PurchaseEntry._ID + " = ?",
                 new String[]{Integer.toString(purchaseID)});
+
+        Toast.makeText(this, name + " removed from Portfolio", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     public void onRefresh(View view) {
@@ -360,9 +363,6 @@ public class StockDetails extends AppCompatActivity {
                     findViewById(R.id.volume).setVisibility(View.VISIBLE);
                     volume = Integer.parseInt(stock.get(Constants.KEY_VOLUME));
 
-                    findViewById(R.id.qty).setVisibility(View.VISIBLE);
-                    findViewById(R.id.addButton).setVisibility(View.VISIBLE);
-
                     updateStockInfo();
                     new UpdateDatabase().execute();
                 }
@@ -383,8 +383,6 @@ public class StockDetails extends AppCompatActivity {
                 findViewById(R.id.earningsPerShare).setVisibility(View.INVISIBLE);
                 findViewById(R.id.priceToEarningsRatio).setVisibility(View.INVISIBLE);
                 findViewById(R.id.volume).setVisibility(View.INVISIBLE);
-                findViewById(R.id.qty).setVisibility(View.INVISIBLE);
-                findViewById(R.id.addButton).setVisibility(View.INVISIBLE);
                 Toast.makeText(getBaseContext(), "No Stock Information Found",
                         Toast.LENGTH_SHORT).show();
 

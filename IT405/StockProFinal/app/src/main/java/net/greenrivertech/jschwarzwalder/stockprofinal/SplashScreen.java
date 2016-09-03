@@ -1,13 +1,18 @@
 package net.greenrivertech.jschwarzwalder.stockprofinal;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -24,6 +29,18 @@ public class SplashScreen extends AppCompatActivity {
         };
         View layout = findViewById(R.id.splash);
         layout.setOnClickListener(screen);
+
+        SharedPreferences settings =  PreferenceManager.getDefaultSharedPreferences(this);
+        int alarmInterval =
+                Integer.parseInt(settings.getString(SettingsActivity.PREF_SYNC_INTERVAL, "3600000"));
+
+        Intent alarm = new Intent(this, AlarmReceiver.class);
+        boolean alarmRunning = (PendingIntent.getBroadcast(this, 0, alarm, PendingIntent.FLAG_NO_CREATE) != null);
+        if(alarmRunning == false) {
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarm, 0);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime(), alarmInterval, pendingIntent);
+        }
     }
 
     @Override
