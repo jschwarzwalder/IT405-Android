@@ -2,43 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    android:foregroundGravity="fill_horizontal"
     android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/colorBackground"
     android:padding="10dp"
-    android:scrollIndicators="right">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <EditText
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:background="@color/white"
-            android:hint="@string/searchsymbol"
-            android:inputType="textCapCharacters" />
-
-        <Button
-
-            android:id="@+id/searchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/green"
-            android:onClick="onSearch"
-            android:text="@string/search"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-
-            />
-    </LinearLayout>
-
+    android:scrollIndicators="right"
+    android:foregroundGravity="fill_horizontal">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -65,6 +34,39 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:text="@string/name" />
+
+            <TextView
+                android:id="@+id/datePurchased"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/date_purchased" />
+
+            <TextView
+                android:id="@+id/priceWhenPurchased"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/price_when_purchased" />
+
+            <TextView
+                android:id="@+id/quantityPurchased"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/quantity_purchased" />
+
+            <TextView
+                android:id="@+id/CurrentDataLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:text="@string/current_data" />
 
             <TextView
                 android:id="@+id/price"
@@ -105,8 +107,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:text="@string/change"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textColor="@color/green" />
 
             <TextView
                 android:id="@+id/changePercent"
@@ -115,8 +116,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:text="@string/change"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textColor="@color/green" />
 
             <TextView
                 android:id="@+id/high"
@@ -172,35 +172,48 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:padding="10dp">
-
-        <EditText
-            android:id="@+id/qty"
-            android:layout_width="wrap_content"
-            android:layout_weight="3"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:hint="@string/qty"
-            android:inputType="number"
-            android:onClick="onAdd"
-            android:padding="10dp"
-            android:visibility="invisible" />
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        >
 
         <Button
-
-            android:id="@+id/addButton"
+            android:id="@+id/list"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="8"
-            android:background="@color/green"
-            android:onClick="onAdd"
-            android:text="@string/add"
-            android:textAllCaps="false"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/teal"
+            android:text="@string/list"
             android:textColor="@color/white"
-            android:visibility="invisible"
+            android:layout_marginRight="50dp"
+            android:onClick="backtoList"
+            />
 
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/teal"
+            android:text="@string/delete"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/white"
+            android:onClick="onDelete"
+            />
+
+        <Button
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/teal"
+            android:text="@string/refresh"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/white"
+            android:onClick="onRefresh"
             />
 
     </LinearLayout>
