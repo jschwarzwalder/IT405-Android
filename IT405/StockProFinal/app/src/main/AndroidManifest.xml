@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.greenrivertech.jschwarzwalder.stockprofinal">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +19,8 @@
         <activity android:name=".MainScreen" />
         <activity android:name=".StockQuotesActivity" />
         <activity android:name=".ManagePortfolioActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".StockDetails"></activity>
     </application>
 
 </manifest>
