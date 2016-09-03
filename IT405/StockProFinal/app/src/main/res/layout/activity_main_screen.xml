@@ -10,36 +10,35 @@
     <!-- Vertical Orientation -->
     <Button
         android:id="@+id/StockQuotes"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/orange"
         android:text="@string/StockQuotes"
         android:layout_weight="1"
         android:textColor="@color/white"
-        android:layout_margin="50dp" />
+        />
 
     <Button
         android:id="@+id/Portfolio"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@color/green"
         android:text="@string/Portfolio"
-        android:textColor="@color/white"
-        android:layout_margin="50dp" />
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/Settings"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@color/teal"
         android:text="@string/Settings"
         android:textColor="@color/white"
-        android:layout_margin="50dp" />
+        />
 
 
 </LinearLayout>
