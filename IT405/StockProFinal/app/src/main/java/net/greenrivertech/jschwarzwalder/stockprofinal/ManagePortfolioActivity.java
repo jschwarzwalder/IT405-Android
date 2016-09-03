@@ -31,7 +31,7 @@ public class ManagePortfolioActivity extends AppCompatActivity {
     };
     private static final int[] toList = new int[]{
 
-            R.id.symbol,
+            R.id.Name,
             R.id.Price,
             R.id.datePurchased,
             R.id.Quantity,
@@ -122,6 +122,10 @@ public class ManagePortfolioActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void showPurchase(View view) {
+        showPurchase(view, (Integer) view.getTag());
+    }
+
     private class StockCursorAdapter extends SimpleCursorAdapter {
 
         public StockCursorAdapter(Context context, int layoutID, Cursor cursor, String[] fromList,
@@ -146,6 +150,20 @@ public class ManagePortfolioActivity extends AppCompatActivity {
             Button button = (Button) view.findViewById(R.id.Delete);
             button.setTag(id);
 
+            View priceView = view.findViewById(R.id.Price);
+            priceView.setTag(id);
+
+            View changeView= view.findViewById(R.id.Change);
+            changeView.setTag(id);
+
+            View nameView= view.findViewById(R.id.Name);
+            nameView.setTag(id);
+
+            View datePurchasedView= view.findViewById(R.id.datePurchased);
+            datePurchasedView.setTag(id);
+
+            View quantityView= view.findViewById(R.id.Quantity);
+            quantityView.setTag(id);
         }
     }
 }

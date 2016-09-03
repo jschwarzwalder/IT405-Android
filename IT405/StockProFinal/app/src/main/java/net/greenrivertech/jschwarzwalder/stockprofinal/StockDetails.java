@@ -66,41 +66,43 @@ public class StockDetails extends AppCompatActivity {
                 datePurchased = purchaseCursor.getString(1);
                 priceWhenPurchased = purchaseCursor.getInt(2);
                 symbol = purchaseCursor.getString(3);
+
+                Cursor stockCursor = db.query(StocksContract.StockEntry.TABLE_NAME, new String[]{
+                                StocksContract.StockEntry.COLUMN_NAME_CURRENT_PRICE,
+                                StocksContract.StockEntry.COLUMN_NAME_LAST_TRADED_DATE,
+                                StocksContract.StockEntry.COLUMN_NAME_OPEN_PRICE,
+                                StocksContract.StockEntry.COLUMN_NAME_CLOSING_PRICE,
+                                StocksContract.StockEntry.COLUMN_NAME_DAY_HIGH,
+                                StocksContract.StockEntry.COLUMN_NAME_DAY_LOW,
+                                StocksContract.StockEntry.COLUMN_NAME_52_WEEK_RANGE,
+                                StocksContract.StockEntry.COLUMN_NAME_CHANGE,
+                                StocksContract.StockEntry.COLUMN_NAME_VOLUME,
+                                StocksContract.StockEntry.COLUMN_NAME_CHANGE_PERCENT,
+                                StocksContract.StockEntry.COLUMN_NAME_EARN_PER_SHARE,
+                                StocksContract.StockEntry.COLUMN_NAME_PRICE_TO_EARNINGS,
+                                StocksContract.StockEntry.COLUMN_NAME_NAME,
+                        },
+                        StocksContract.StockEntry.COLUMN_NAME_SYMBOL + " = ?",
+                        new String[]{symbol}, null, null, null);
+                if (stockCursor.moveToFirst()) {
+                    price = stockCursor.getInt(0);
+                    date = stockCursor.getString(1);
+                    openPrice = stockCursor.getInt(2);
+                    prevPrice = stockCursor.getInt(3);
+                    high = stockCursor.getInt(4);
+                    low = stockCursor.getInt(5);
+                    yearRange = stockCursor.getString(6);
+                    change = stockCursor.getInt(7);
+                    volume = stockCursor.getInt(8);
+                    changePercent = stockCursor.getString(9);
+                    earningsPerShare = stockCursor.getString(10);
+                    priceToEarningsRatio = stockCursor.getString(11);
+                    name = stockCursor.getString(12);
+                }
             }
             purchaseCursor.close();
 
-            Cursor stockCursor = db.query(StocksContract.StockEntry.TABLE_NAME, new String[]{
-                            StocksContract.StockEntry.COLUMN_NAME_CURRENT_PRICE,
-                            StocksContract.StockEntry.COLUMN_NAME_LAST_TRADED_DATE,
-                            StocksContract.StockEntry.COLUMN_NAME_OPEN_PRICE,
-                            StocksContract.StockEntry.COLUMN_NAME_CLOSING_PRICE,
-                            StocksContract.StockEntry.COLUMN_NAME_DAY_HIGH,
-                            StocksContract.StockEntry.COLUMN_NAME_DAY_LOW,
-                            StocksContract.StockEntry.COLUMN_NAME_52_WEEK_RANGE,
-                            StocksContract.StockEntry.COLUMN_NAME_CHANGE,
-                            StocksContract.StockEntry.COLUMN_NAME_VOLUME,
-                            StocksContract.StockEntry.COLUMN_NAME_CHANGE_PERCENT,
-                            StocksContract.StockEntry.COLUMN_NAME_EARN_PER_SHARE,
-                            StocksContract.StockEntry.COLUMN_NAME_PRICE_TO_EARNINGS,
-                            StocksContract.StockEntry.COLUMN_NAME_NAME,
-                    },
-                    StocksContract.StockEntry.COLUMN_NAME_SYMBOL + " = ?",
-                    new String[]{symbol}, null, null, null);
-            if (stockCursor.moveToFirst()) {
-                price = stockCursor.getInt(0);
-                date = stockCursor.getString(1);
-                openPrice = stockCursor.getInt(2);
-                prevPrice = stockCursor.getInt(3);
-                high = stockCursor.getInt(4);
-                low = stockCursor.getInt(5);
-                yearRange = stockCursor.getString(6);
-                change = stockCursor.getInt(7);
-                volume = stockCursor.getInt(8);
-                changePercent = stockCursor.getString(9);
-                earningsPerShare = stockCursor.getString(10);
-                priceToEarningsRatio = stockCursor.getString(11);
-                name = stockCursor.getString(12);
-            }
+
             purchaseCursor.close();
 
 

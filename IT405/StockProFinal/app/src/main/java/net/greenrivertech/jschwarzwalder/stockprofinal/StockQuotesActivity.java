@@ -191,6 +191,9 @@ public class StockQuotesActivity extends AppCompatActivity {
 
         if (quantity > 0) {
             StocksDatabaseHelper.insertPurchase(db, symbol, quantity, price, date);
+            StocksDatabaseHelper.insertOrUpdateStock(db, symbol, price, date, openPrice, prevPrice,
+                    high, low, yearRange, change, volume, changePercent, earningsPerShare,
+                    priceToEarningsRatio, name);
 
             Toast.makeText(getBaseContext(), quantity + " shares of " + name + " added.",
                     Toast.LENGTH_SHORT).show();

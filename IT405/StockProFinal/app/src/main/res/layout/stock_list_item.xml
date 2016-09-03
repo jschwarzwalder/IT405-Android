@@ -2,100 +2,88 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/Delete"
-        android:layout_alignBottom="@+id/Delete"
+    <TextView
+        android:id="@+id/Quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/Delete"
-        >
+        android:layout_toLeftOf="@+id/Price"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showPurchase"/>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/ViewTop">
+    <TextView
+        android:id="@+id/Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_toLeftOf="@+id/Change"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showPurchase"
+        />
 
-            <TextView
-                android:id="@+id/Quantity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="center" />
+    <TextView
+        android:id="@+id/Change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@id/Delete"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showPurchase"
+        android:textColor="@color/green" />
 
-            <TextView
-                android:id="@+id/Price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="center" />
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/Delete"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/datePurchased"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showPurchase"/>
 
-
-            <TextView
-                android:id="@+id/Change"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="center"
-                android:textColor="@color/green" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@+id/ViewTop"
-            android:layout_alignLeft="@id/ViewTop"
-            android:layout_alignRight="@id/ViewTop"
-            android:id="@+id/Viewmiddle">
-
-            <TextView
-                android:id="@+id/Name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:clickable="true"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/datePurchased"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-
-        <View
-            android:id="@+id/ViewLine"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/Viewmiddle"
-            android:layout_alignLeft="@id/ViewTop"
-            android:layout_alignRight="@id/ViewTop"
-            android:background="@android:color/darker_gray" />
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/datePurchased"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/Delete"
+        android:layout_alignRight="@id/Change"
+        android:layout_marginLeft="25dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="showPurchase"
+        android:paddingRight="10dp"/>
 
     <Button
         android:id="@+id/Delete"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
         android:background="@color/teal"
         android:onClick="onDelete"
-        android:text="@string/del"
+        android:text="Del"
         android:textColor="@color/white" />
+
+    <View
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/Delete"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
 
 </RelativeLayout>
