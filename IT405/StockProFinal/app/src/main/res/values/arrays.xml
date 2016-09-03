@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sync_timer_options" >
+        <item name="1440">Every day</item>
+        <item name="300">Every 5 Hours</item>
+        <item name="120">Every 2 Hours</item>
+        <item name="60">Every Hour</item>
+        <item name="30">Every 30 Minutes</item>
+        <item name="15">Every 15 Minutes</item>
+        <item name="5">Every 5 Minutes</item>
+
+    </string-array>
+    <string-array name="sync_timer_values" >
+
+        <item name="1440">86400000</item>
+        <item name="300">18000000</item>
+        <item name="120">7200000</item>
+        <item name="60">3600000</item>
+        <item name="30">1800000</item>
+        <item name="15">900000</item>
+        <item name="5">300000</item>
+
+    </string-array>
+</resources>

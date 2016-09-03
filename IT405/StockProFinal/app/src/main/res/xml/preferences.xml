@@ -7,5 +7,15 @@
         android:summary="@string/backgroundSyncSettingsDesc"
         android:defaultValue="false" />
 
+    <ListPreference
+        android:dependency="background_sync"
+        android:key="sync_timer"
+        android:title="Sync Timer"
+        android:summary="How often updates are performed"
+        android:entries="@array/sync_timer_options"
+        android:entryValues="@array/sync_timer_values"
+        android:defaultValue="3600000"
+        />
+
 
 </PreferenceScreen>
