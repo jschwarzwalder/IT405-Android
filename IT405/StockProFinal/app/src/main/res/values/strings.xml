@@ -37,6 +37,6 @@
     <string name="price_when_purchased">Price When Purchased</string>
     <string name="quantity_purchased">Quantity Purchased</string>
     <string name="current_data">Current Data</string>
-    <string name="list">Stock List</string>
+    <string name="list">List</string>
     <string name="del">Del</string>
 </resources>

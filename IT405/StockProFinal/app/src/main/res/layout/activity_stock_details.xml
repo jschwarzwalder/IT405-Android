@@ -186,7 +186,6 @@
             android:background="@color/teal"
             android:text="@string/list"
             android:textColor="@color/white"
-            android:layout_marginRight="50dp"
             android:onClick="backtoList"
             />
 

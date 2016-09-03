@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/Quantity"
+        android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/Delete"
@@ -41,10 +41,11 @@
         android:textColor="@color/green" />
 
     <TextView
-        android:id="@+id/Name"
+        android:id="@+id/Quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/Delete"
+        android:layout_alignTop="@id/datePurchased"
         android:layout_marginLeft="10dp"
         android:layout_toLeftOf="@+id/datePurchased"
         android:clickable="true"
@@ -57,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/Delete"
         android:layout_alignRight="@id/Change"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:clickable="true"
         android:gravity="center"
         android:onClick="showPurchase"

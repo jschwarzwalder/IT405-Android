@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ManagePortfolioActivity extends AppCompatActivity {
 
@@ -46,20 +47,6 @@ public class ManagePortfolioActivity extends AppCompatActivity {
 
 
 
-        Cursor cursor = queryPurchases();
-
-        final ListView stocksList = (ListView) findViewById(R.id.stockListDisplay);
-
-        stockAdapter = new StockCursorAdapter(this, R.layout.stock_list_item,
-                cursor, fromList, toList, 0);
-
-        stocksList.setAdapter(stockAdapter);
-        stocksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                showPurchase(view, (int) id);
-            }
-        });
 
         //update Total Value and refresh the display
     }
@@ -77,8 +64,25 @@ public class ManagePortfolioActivity extends AppCompatActivity {
                 }, null, null, null, null, null);
     }
 
-    protected void onResume(Bundle savedInstanceState) {
+    @Override
+    protected void onResume() {
 
+        super.onResume();
+
+        Cursor cursor = queryPurchases();
+
+        final ListView stocksList = (ListView) findViewById(R.id.stockListDisplay);
+
+        stockAdapter = new StockCursorAdapter(this, R.layout.stock_list_item,
+                cursor, fromList, toList, 0);
+
+        stocksList.setAdapter(stockAdapter);
+        stocksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
+                showPurchase(view, (int) id);
+            }
+        });
 
         stockAdapter.swapCursor(queryPurchases());
     }
@@ -144,9 +148,28 @@ public class ManagePortfolioActivity extends AppCompatActivity {
         }
 
         @Override
-        public void bindView(View view, Context context, Cursor cursor) {
-            super.bindView(view, context, cursor);
+        public void bindView(View view, Context context, Cursor cursor)
+        {
+
             int id = cursor.getInt(cursor.getColumnIndex(StocksContract.PurchaseEntry._ID));
+            String symbol = cursor.getString(cursor.getColumnIndex(StocksContract.PurchaseEntry.COLUMN_NAME_SYMBOL));
+            String date  = cursor.getString(cursor.getColumnIndex(StocksContract.PurchaseEntry.COLUMN_NAME_DATE_PURCHASED));
+            int quantity = cursor.getInt(cursor.getColumnIndex(StocksContract.PurchaseEntry.COLUMN_NAME_AMOUNT_PURCHASED));
+            int price = cursor.getInt(cursor.getColumnIndex(StocksContract.PurchaseEntry.COLUMN_NAME_PRICE_AT_PURCHASE));
+
+
+            ((TextView) view.findViewById(R.id.Price)).setText(String.format("$%01.2f", price / 100.0f));
+
+            ((TextView) view.findViewById(R.id.Quantity)).setText("Qty: " + quantity);
+
+
+            ((TextView) view.findViewById(R.id.Name)).setText("Symbol: " + symbol);
+
+            ((TextView) view.findViewById(R.id.datePurchased)).setText(date);
+
+
+
+
             Button button = (Button) view.findViewById(R.id.Delete);
             button.setTag(id);
 
