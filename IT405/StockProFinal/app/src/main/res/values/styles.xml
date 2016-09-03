@@ -8,4 +8,52 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="myButtonLarge">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="myTitle" >
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">10dp</item>
+
+    </style>
+
+    <style name="myEmpText" >
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="mySubText" >
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="myNormalText" >
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="myChangeUpText" parent="myNormalText" >
+        <item name="android:textColor">@color/green</item>
+
+    </style>
+
+    <style name="myChangeDownText" parent="myNormalText" >
+        <item name="android:textColor">@color/colorAccent</item>
+
+    </style>
+
 </resources>
