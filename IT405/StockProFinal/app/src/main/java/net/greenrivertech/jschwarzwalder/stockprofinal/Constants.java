@@ -21,6 +21,7 @@ public class Constants {
     static final String KEY_PRCNTCHANGE = "ChangePercent";
     static final String KEY_EARNING = "EarnPerShare";
     static final String KEY_PE = "PE";
+    static final String KEY_QUOTE_ERROR = "QuoteError";
     static final String KEY_ROOT ="DataSet";
     static final String KEY_DIFFGR = "diffgr:diffgram";
 

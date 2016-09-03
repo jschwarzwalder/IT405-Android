@@ -40,8 +40,6 @@ public class StockXMLParser {
     }
 
 
-
-
     // Parses the contents
     private HashMap<String, String> readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, Constants.KEY_ITEM);
@@ -60,6 +58,7 @@ public class StockXMLParser {
         String annrange = null;
         String earning = null;
         String pe = null;
+        String quoteError = null;
 
 
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -96,6 +95,8 @@ public class StockXMLParser {
                 earning = readElement(parser, Constants.KEY_EARNING);
             } else if (elname.equals(Constants.KEY_PE)) {
                 pe = readElement(parser, Constants.KEY_PE);
+            } else if (elname.equals(Constants.KEY_PE)) {
+                quoteError = readElement(parser, Constants.KEY_QUOTE_ERROR);
             } else {
                 skip(parser);
             }
@@ -103,7 +104,7 @@ public class StockXMLParser {
         return createStock(symbol, name, lastprice, date,
                 change, opening, highprice, lowprice, volume,
                 prevclose, percentchange, annrange,
-                earning, pe);
+                earning, pe, quoteError);
 
 
     }
@@ -151,7 +152,7 @@ public class StockXMLParser {
                                                 String lastprice, String date, String change,
                                                 String opening, String highprice, String lowprice, String volume,
                                                 String prevclose, String percentchange,
-                                                String annrange, String earning, String pe) {
+                                                String annrange, String earning, String pe, String quoteError) {
         HashMap<String, String> hm = new HashMap<String, String>();
         hm.put(Constants.KEY_PE, pe);
         hm.put(Constants.KEY_EARNING, earning);
@@ -168,6 +169,7 @@ public class StockXMLParser {
         hm.put(Constants.KEY_CURPRICE, lastprice);
         hm.put(Constants.KEY_NAME, name);
         hm.put(Constants.KEY_SYMBOL, symbol);
+        hm.put(Constants.KEY_QUOTE_ERROR, quoteError);
 
         return hm;
     }
